@@ -76,7 +76,7 @@
     h1, h2, h3, p { margin: 0; }
     .hero h1 {
       font-size: clamp(28px, 5vw, 52px);
-      line-height: 1.08;
+      line-height: 1.5;
       letter-spacing: -0.03em;
       max-width: 680px;
     }
@@ -687,7 +687,8 @@
   <div class="shell">
     <section id="intro" class="screen active">
       <div class="hero card hero-minimal">
-        <h1>MBTI已经过时了，CAT-BTI来了。</h1>
+        <h1>MBTI和SBTI都过时了</h1>
+        <h1>CAT-BTI来了</h1>
         <div class="hero-actions hero-actions-single">
           <button id="startBtn" class="btn-primary">开始测试</button>
         </div>
@@ -1066,36 +1067,6 @@
     ];
 
     const TYPE_LIBRARY = {
-  "MIAO-s": {
-    "code": "MIAO-s",
-    "cn": "喵喵教主",
-    "intro": "喵喵喵喵喵！听见我的声音了吗！",
-    "desc": "恭喜！您家的猫是猫界话痨冠军！它的喵喵喵不是普通叫唤，是一套完整的语言体系——用来表达「你回来了！我饿了！看看我！陪我玩！我想要那个！开罐头！现在！立刻！」。MIAO-s型猫一天不叫个八百回浑身难受，声音能从小奶音到帝王音切换自如。它不仅叫，还会跟你对话——你喵一声它回一声，仿佛在进行一场跨物种的哲学探讨。别小看这种猫，它深谙「会哭的猫有奶吃」之道，靠一张嘴活成了全家的掌上明珠。"
-  },
-  "FOO-s": {
-    "code": "FOO-s",
-    "cn": "饭桶型",
-    "intro": "碗见底了，你看不见吗？",
-    "desc": "恭喜！您家养的是一只以消化系统为宇宙中心的小猫咪。它的猫生三问：早饭呢？午饭呢？晚饭呢？宵夜呢？FOO-s型猫看见饭碗比看见你还亲，一听到猫粮袋子的声音就像被通了电一样冲过来。吃完之后立刻去检查空碗——确认一下刚才是不是真的吃过。这种猫的眼神永远写满两个字：要吃。它不是在吃饭就是在策划下一顿饭，胃仿佛连着一个无底洞。养了它你就别想安生偷吃零食，因为它的鼻子比海关的缉毒犬还灵。"
-  },
-  "HI-SEN": {
-    "code": "HI-SEN",
-    "cn": "冷漠型",
-    "intro": "……你刚才叫我了吗？",
-    "desc": "恭喜！您家养的是一只视而不见大师。HI-SEN型猫完美诠释了「高冷」二字的终极奥义——你叫它，它耳朵动一下已经是给你天大的面子了；再多一个眼神，那是你祖坟冒青烟。它活得像一位看透世事的隐士，任凭你百般讨好，它依然岿然不动。不是它听不懂，是它懒得理你。在它眼里，你可能只是那个会自动出现并投喂食物的两脚兽工具人。它对陌生人更是如此——该躲躲，该藏藏，宁可独自美丽也不迁就任何人。"
-  },
-  "LO-GER": {
-    "code": "LO-GER",
-    "cn": "拆家狂",
-    "intro": "凌晨3点，跑酷开始！",
-    "desc": "恭喜！您家养的是一只哈基米——AKA沙发杀手、窗帘毁灭者、数据线终结者。LO-GER型猫体内仿佛装了一个永动机，白天你叫它它为空气，但一到深夜——尤其是凌晨3点那个神圣时刻——它会准时开始在家中上演《速度与激情》。全屋跑酷是基本配置，偶尔还要搭配空中转体和高速漂移。它抓沙发不是不懂事，是在宣示领地主权；它推东西下楼不是手欠，是在测试物理定律。养了它，你需要购置家具的速度跑赢它搞破坏的速度。"
-  },
-  "CUDDLE": {
-    "code": "CUDDLE",
-    "cn": "粘人型",
-    "intro": "踩奶踩到你求饶！",
-    "desc": "恭喜！您家养的是一个人形挂件——aka液态猫的极致形态。CUDDLE型猫把「粘人」二字升华为了一门行为艺术。你坐下，它立刻贴上来；你躺下，它立刻压住你的肚子；你睡觉，它必须钻进被窝贴着你的脸。它恨不得长在你身上，恨不得你上厕所它都要在门口蹲守等你。这种猫的踩奶功力堪称一绝，能把你踩到皮肤发红还不肯停手。它不是宠物，是你的影子，而且是个甩不掉的那种。养了它，你就别想拥有私人空间。"
-  },
   "DEAD": {
     "code": "DEAD",
     "cn": "行尸猫",
@@ -1260,11 +1231,6 @@
   }
 };
     const TYPE_IMAGES = {
-  "MIAO-s": "./image/GOGO.png",
-  "FOO-s":  "./image/POOR.png",
-  "HI-SEN": "./image/SOLO.png",
-  "LO-GER": "./image/WOC.png",
-  "CUDDLE": "./image/MUM.png",
   "DEAD":   "./image/DEAD.png",
   "BOSS":   "./image/BOSS.png",
   "FAKE":   "./image/FAKE.png",
@@ -1295,11 +1261,6 @@
 };
 
     const NORMAL_TYPES = [
-  { "code": "MIAO-s", "pattern": "HHL-HMH-MHH-HMH-HHH" },
-  { "code": "FOO-s",  "pattern": "MHH-MMH-HMH-MMM-MHH" },
-  { "code": "HI-SEN", "pattern": "HHL-LLH-LML-LLM-LHL" },
-  { "code": "LO-GER", "pattern": "MHM-HMH-HMH-HMM-HHM" },
-  { "code": "CUDDLE", "pattern": "MHM-MMH-HMM-HMM-HLL" },
   { "code": "DEAD",   "pattern": "MML-MML-LML-MML-LHM" },
   { "code": "BOSS",   "pattern": "HHH-HMH-MHH-HHH-MHL" },
   { "code": "FAKE",   "pattern": "HLM-MML-MLM-HLH-HLH" },
@@ -1405,8 +1366,20 @@
 };
     const dimensionOrder = ['S1','S2','S3','E1','E2','E3','A1','A2','A3','Ac1','Ac2','Ac3','So1','So2','So3'];
 
-    const DRUNK_TRIGGER_QUESTION_ID = 'drink_gate_q2';
-    const specialQuestions = [];
+    const DRUNK_TRIGGER_QUESTION_ID = 'drink_gate_q1';
+    const specialQuestions = [
+      {
+        id: 'drink_gate_q1',
+        dim: null,
+        special: true,
+        text: '你家猫今晚的状态有点不对劲——它在追一个不存在的东西，还对着墙发表演讲。你觉得它是？',
+        options: [
+          { label: '可能是做梦没睡醒，很正常', value: 1 },
+          { label: '它吃了猫薄荷，已经进入迷幻状态了', value: 2 },
+          { label: '它在感知人类无法感知的次元', value: 3 }
+        ]
+      }
+    ];
 
     const app = {
       shuffledQuestions: [],
@@ -1443,12 +1416,7 @@
     }
 
     function getVisibleQuestions() {
-      const visible = [...app.shuffledQuestions];
-      const gateIndex = visible.findIndex(q => q.id === 'drink_gate_q1');
-      if (gateIndex !== -1 && app.answers['drink_gate_q1'] === 3) {
-        visible.splice(gateIndex + 1, 0, specialQuestions[1]);
-      }
-      return visible;
+      return [...app.shuffledQuestions];
     }
 
     function getQuestionMetaLabel(q) {
@@ -1489,14 +1457,6 @@
         input.addEventListener('change', (e) => {
           const { name, value } = e.target;
           app.answers[name] = Number(value);
-
-          if (name === 'drink_gate_q1') {
-            if (Number(value) !== 3) {
-              delete app.answers['drink_gate_q2'];
-            }
-            renderQuestions();
-            return;
-          }
 
           updateProgress();
         });
@@ -1578,14 +1538,17 @@
       let special = false;
       let secondaryType = null;
 
-      if (drunkTriggered) {
+      const drunkRoll = Math.random() < 0.01;
+      const hhhhRoll = bestNormal.similarity < 68 && Math.random() < 0.57;
+
+      if (drunkTriggered || drunkRoll) {
         finalType = TYPE_LIBRARY.DRUNK;
         secondaryType = bestNormal;
         modeKicker = '隐藏人格已激活';
         badge = '匹配度 100% · 酒精异常因子已接管';
         sub = '乙醇亲和性过强，系统已直接跳过常规人格审判。';
         special = true;
-      } else if (bestNormal.similarity < 60) {
+      } else if (hhhhRoll) {
         finalType = TYPE_LIBRARY.HHHH;
         modeKicker = '系统强制兜底';
         badge = `标准人格库最高匹配仅 ${bestNormal.similarity}%`;
