@@ -1337,7 +1337,7 @@
           distance += diff;
           if (diff === 0) exact += 1;
         }
-        const similarity = Math.max(0, Math.round((1 - distance / 15) * 100));
+        const similarity = Math.max(0, Math.round((1 - distance / 30) * 100));
         return { ...type, ...TYPE_LIBRARY[type.code], distance, exact, similarity };
       }).sort((a, b) => {
         if (a.distance !== b.distance) return a.distance - b.distance;
