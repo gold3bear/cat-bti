@@ -123,13 +123,15 @@
       margin-top: 22px;
     }
     .hero-minimal {
-      min-height: 48vh;
+      min-height: 54vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 42px 20px;
+      padding: 52px 24px 44px;
+      position: relative;
+      overflow: hidden;
     }
     .hero-minimal::after { display: none; }
     .hero-minimal h1 {
@@ -139,6 +141,77 @@
     .hero-actions-single {
       justify-content: center;
       margin-top: 28px;
+    }
+
+    /* ── 词云层 ── */
+    .wordcloud {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .wc-word {
+      position: absolute;
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+      user-select: none;
+    }
+    /* 桌面锚点词：以锚点为中心 */
+    .wc-word-centered {
+      transform: translate(-50%, -50%);
+    }
+
+    /* ── CBTI 主标题区 ── */
+    .cbti-hero-center {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .cbti-logo {
+      font-size: clamp(72px, 16vw, 120px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--text);
+      background: linear-gradient(135deg, #2d1a0a 0%, var(--accent-strong) 60%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cbti-fullname {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .cbti-tagline {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .cbti-tagline span {
+      font-size: clamp(15px, 3.5vw, 19px);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .cbti-tagline .cbti-or {
+      font-size: clamp(12px, 2.5vw, 15px);
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.3;
+      margin: 2px 0;
+    }
+    .cbti-tagline span em {
+      font-style: normal;
+      color: var(--accent-strong);
     }
 
     button {
@@ -183,8 +256,14 @@
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      margin-bottom: 18px;
       flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--card);
+      padding: 12px 22px;
+      margin: -22px -22px 18px -22px;
+      border-bottom: 1px solid var(--border);
     }
 
     .progress {
@@ -287,7 +366,7 @@
 
     .actions-bottom {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
@@ -467,21 +546,17 @@
       gap: 18px;
     }
     .result-top {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 18px;
-      align-items: stretch;
+      display: block;
     }
-    .poster-box, .type-box, .analysis-box, .dim-box, .note-box {
+    .poster-box, .type-box, .analysis-box, .dim-box, .note-box, .second-type-box {
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 18px;
       background: linear-gradient(180deg, #ffffff, #fffefb);
     }
         .poster-box {
-      display: grid;
-      grid-template-rows: 1fr auto;
-      min-height: 280px;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
       position: relative;
       background:
@@ -511,6 +586,14 @@
     }
     .poster-box.no-image .poster-image {
       display: none;
+    }
+    .poster-info {
+      padding: 14px 4px 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+      z-index: 1;
     }
     .poster-caption {
       margin-top: 14px;
@@ -552,13 +635,14 @@
       line-height: 1.4;
     }
     .analysis-box h3, .dim-box h3, .note-box h3 {
-      font-size: 16px;
+      font-size: 22px;
       margin-bottom: 12px;
+      color: #1a1a1a;
     }
     .result-actions {
       margin-top: 22px;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
     }
     .analysis-box p {
       margin: 0;
@@ -566,6 +650,9 @@
       font-size: 15px;
       line-height: 1.9;
       white-space: pre-wrap;
+    }
+    .analysis-box p + p {
+      margin-top: 1em;
     }
     .dim-list {
       display: grid;
@@ -605,6 +692,32 @@
     .note-box p {
       margin: 0;
       color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .second-type-box {
+      padding: 16px 20px;
+    }
+    .second-type-label {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .second-type-label strong {
+      color: var(--fg);
+    }
+    .second-type-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      opacity: 0.7;
+    }
+    .second-type-intro {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+    }
       font-size: 13px;
       line-height: 1.8;
     }
@@ -655,7 +768,7 @@
 
     .result-actions {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
@@ -687,15 +800,31 @@
   <div class="shell">
     <section id="intro" class="screen active">
       <div class="hero card hero-minimal">
-        <h1>MBTI和SBTI都过时了</h1>
-        <h1>CAT-BTI来了</h1>
-        <div class="hero-actions hero-actions-single">
-          <button id="startBtn" class="btn-primary">开始测试</button>
+
+        <!-- 伪词云 -->
+        <div class="wordcloud" id="wordcloud"></div>
+
+        <!-- 主内容 -->
+        <div class="cbti-hero-center">
+          <div class="cbti-logo">MeowBTI</div>
+          <div class="cbti-fullname">Cat Bitch Type Indicator</div>
+          <div class="cbti-fullname" style="margin-top:4px;">猫饼类型测试</div>
+          <div class="cbti-tagline">
+            <span>你的猫，<em>有猫饼</em>？</span>
+            <span>你的猫，<em>像你吗</em>？</span>
+            <span class="cbti-or">还是</span>
+            <span>你像<em>你的猫</em>？</span>
+          </div>
         </div>
-        <div style="padding-top: 2rem; display: flex; flex-direction: column">
-          <span>基于 SBTI 框架改编 · 专为猫咪设计的性格测试</span>
-          <span>你家猫主子到底是什么性格？测完你就知道了 🐱</span>
+
+        <div class="hero-actions hero-actions-single" style="position:relative;z-index:2;margin-top:32px;">
+          <button id="startBtn" class="btn-primary">开始测试 🐱</button>
         </div>
+
+        <div style="position:relative;z-index:2;margin-top:64px;font-size:11px;letter-spacing:0.12em;font-weight:300;color:var(--muted);text-align:center;line-height:1.8;">
+          出品：<a href="https://xhslink.com/m/AmNGnK1NlmS" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline;text-underline-offset:3px;">PIUPAW比爪</a>
+        </div>
+
       </div>
     </section>
 
@@ -710,10 +839,7 @@
 
         <div class="actions-bottom">
           <div class="hint" id="testHint">全选完才会放行。猫咪的世界已经够复杂了，起码把题做完整。</div>
-          <div style="display:flex; gap:12px; flex-wrap:wrap;">
-            <button id="backIntroBtn" class="btn-secondary">返回首页</button>
-            <button id="submitBtn" class="btn-primary" disabled>提交并查看结果</button>
-          </div>
+          <button id="submitBtn" class="btn-primary" disabled style="display:block;margin:0 auto;">开启猫饼探索</button>
         </div>
       </div>
     </section>
@@ -725,47 +851,47 @@
           <div class="result-top">
             <div class="poster-box" id="posterBox">
               <img id="posterImage" class="poster-image" alt="猫咪性格结果图" />
-              <div id="posterCaption" class="poster-caption">你家猫主子就是这个猫设！</div>
-            </div>
-
-            <div class="type-box">
-              <div class="type-kicker" id="resultModeKicker">你的猫咪主类型</div>
-              <div class="type-name" id="resultTypeName">MIAO-s（喵喵教主）</div>
-              <div class="match" id="matchBadge">匹配度 92%</div>
-              <div class="type-subname" id="resultTypeSub">你家猫的性格备注会显示在这里。</div>
+              <div class="poster-info">
+                <div id="posterCaption" class="poster-caption"></div>
+                <div class="match-badges" id="matchBadges" style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"></div>
+              </div>
+              <div id="resultModeKicker" style="display:none;"></div>
+              <div id="resultTypeName" style="display:none;"></div>
+              <div id="resultTypeSub" style="display:none;"></div>
             </div>
           </div>
 
           <div class="analysis-box">
-            <h3>你的猫：</h3>
+            <h3>有猫饼：<span id="resultTypeLabel"></span></h3>
             <p id="resultDesc"></p>
           </div>
 
+          <div id="secondTypeBox" class="second-type-box" style="display:none;"></div>
+
           <div class="dim-box">
-            <h3>十五维度评分</h3>
+            <h3>猫饼四维画像</h3>
             <div id="dimList" class="dim-list"></div>
           </div>
 
           <div class="note-box">
             <h3>友情提示</h3>
-            <p id="funNote">本测试仅供娱乐，别拿它当养猫指南、选猫手册、相亲道具、扔猫借口、领养参考或人生判决书。</p>
+            <p id="funNote">你的猫从来不在意自己是什么类型，它只在意你几点开罐头。本测试娱乐向，结果请轻拿轻放，不必对号入座太用力。</p>
           </div>
 
-                    <details class="author-box">
-            <summary>作者的话</summary>
-            <div class="author-content">
-              <p>本测试基于 SBTI 框架改编，专为猫咪设计。初衷是帮各位猫奴更了解自己的猫主子到底是个什么货色。</p>
-              <p>你家猫看起来软萌可爱，实际上可能是个冷漠的统治者。又或者你以为它很高冷，其实它只是不知道怎么表达爱意。</p>
-              <p>无论如何，猫咪是这个地球上最神秘的生物之一。这个测试只是给你一个参考答案，真正的答案永远藏在它那双看透一切的眼睛里。</p>
-              <p>祝各位猫奴和猫主子幸福美满，喵喵喵！</p>
-            </div>
-          </details>
+                    <div class="note-box">
+            <h3>作者的话</h3>
+            <p>本测试基于 MBTI、SBTI 框架改编，专为猫咪设计。初衷是帮各位猫奴更了解自己的猫主子到底是个什么货色。</p>
+            <p>你家猫看起来软萌可爱，实际上可能是个冷漠的统治者。又或者你以为它很高冷，其实它只是不知道怎么表达爱意。</p>
+            <p>无论如何，猫咪是这个地球上最神秘的生物之一。这个测试只是给你一个参考答案，真正的答案永远藏在它那双看透一切的眼睛里。</p>
+            <p>祝各位猫奴和猫主子幸福美满，喵喵喵！</p>
+            <p style="margin-top:1em;">出品：<a href="https://xhslink.com/m/AmNGnK1NlmS" target="_blank" rel="noopener" style="color:var(--accent-strong);text-decoration:underline;text-underline-offset:3px;">PIUPAW比爪</a><br>鸣谢：<a href="https://xhslink.com/m/3VdyyJ7v5Fh" target="_blank" rel="noopener" style="color:var(--accent-strong);text-decoration:underline;text-underline-offset:3px;">熊叔</a></p>
+          </div>
         </div>
 
         <div class="result-actions">
-          <div style="display:flex; gap:12px; flex-wrap:wrap;">
-            <button id="restartBtn" class="btn-secondary">重新测试</button>
-            <button id="toTopBtn" class="btn-primary">回到首页</button>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+            <button id="restartBtn" class="btn-secondary">重新测 🐱</button>
+            <button id="toTopBtn" class="btn-primary">回首页 🏠</button>
           </div>
         </div>
       </div>
@@ -775,158 +901,193 @@
 
   
   <script>
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // 方案B：4维度系统（替换原15维度系统）
+    // D2 情绪表达  S(1,压抑冷漠) ←→ E(5,外放热情)
+    // D7 社交模式  I(1,回避独处) ←→ O(5,主动外向)
+    // D3 控制欲    F(1,自由随性) ←→ C(5,掌控秩序)
+    // D6 节律      X(1,混沌随性) ←→ R(5,规律精准)
+    // 每维度由多道题累积得分，范围1~5
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     const dimensionMeta = {
-      S1: { name: 'S1 自尊自信', model: '自我认知' },
-      S2: { name: 'S2 自我清晰度', model: '自我认知' },
-      S3: { name: 'S3 核心价值', model: '自我认知' },
-      E1: { name: 'E1 依恋安全感', model: '情感依恋' },
-      E2: { name: 'E2 情感投入度', model: '情感依恋' },
-      E3: { name: 'E3 边界与依赖', model: '情感依恋' },
-      A1: { name: 'A1 世界观倾向', model: '生活态度' },
-      A2: { name: 'A2 规则与灵活度', model: '生活态度' },
-      A3: { name: 'A3 猫生意义感', model: '生活态度' },
-      Ac1: { name: 'Ac1 动机导向', model: '行动模式' },
-      Ac2: { name: 'Ac2 决策风格', model: '行动模式' },
-      Ac3: { name: 'Ac3 执行模式', model: '行动模式' },
-      So1: { name: 'So1 社交主动性', model: '社交风格' },
-      So2: { name: 'So2 人际边界感', model: '社交风格' },
-      So3: { name: 'So3 表达与真实度', model: '社交风格' }
+      D2: { name: 'D2 情绪表达', model: '情绪维度', low: '冷漠压抑型', high: '外放热情型' },
+      D7: { name: 'D7 社交模式', model: '社交维度', low: '独处回避型', high: '主动外向型' },
+      D3: { name: 'D3 控制欲',   model: '控制维度', low: '随性自由型', high: '掌控秩序型' },
+      D6: { name: 'D6 节律',     model: '节律维度', low: '混沌随性型', high: '规律精准型' }
     };
 
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // 题目设计：15题，每题4选项，权重值 1/2/3/4 映射到各维度
+    // D2(情绪表达): Q2, Q4, Q6, Q15综合
+    // D7(社交模式): Q1, Q5, Q10, Q15综合
+    // D3(控制欲):   Q3, Q7, Q8, Q9
+    // D6(节律):     Q12, Q13, Q14
+    // Q11 彩蛋题(ANCE触发判断，不计入维度得分)
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     const questions = [
       {
-        id: 'q1', dim: 'S1',
-        text: '你回家时，你家猫的第一反应是？',
+        id: 'q1', dim: 'D7',
+        text: '你家来了陌生人，你的猫第一反应是？',
         options: [
-          { label: '喵喵叫着冲过来迎接我！', value: 1 },
-          { label: '抬眼看一眼，然后继续睡觉', value: 2 },
-          { label: '慢悠悠走过来蹭我的腿', value: 3 }
+          { label: '门铃一响秒消失，客人走了才从角落里探出脑袋，确认世界安全', value: 1 },
+          { label: '躲在沙发后面远远观望，有人靠近就后退，但也没走', value: 2 },
+          { label: '出来了，找了个制高点（沙发背/柜顶）居高临下看了全场，没被招惹就不吭声，但你能感觉到它在观察', value: 3 },
+          { label: '出来了但不主动，有人叫它才瞟一眼，然后继续走自己的路', value: 4 },
+          { label: '第一个冲上去，踩对方腿，检查对方包，替你面试这个人', value: 5 }
         ]
       },
       {
-        id: 'q2', dim: 'S2',
-        text: '你叫猫的名字时，它真的知道自己叫什么吗？',
+        id: 'q2', dim: 'D2',
+        text: '你叫它的名字，它的第一反应是？',
         options: [
-          { label: '知道，但懒得理我', value: 1 },
-          { label: '可能知道吧，反应不太稳定', value: 2 },
-          { label: '当然知道！一叫就来！', value: 3 }
+          { label: '眼皮动了一下，然后没有然后——听见了，但不认为这件事需要任何后续', value: 1 },
+          { label: '耳朵转了一下，身体没动，算是给了个交代', value: 2 },
+          { label: '耳朵和眼神都给了，身体没动——听到了，但接下来要怎样是你的事，它已经尽责了', value: 3 },
+          { label: '抬起头，判断了一下你手里有没有东西，没有，继续睡', value: 4 },
+          { label: '直接跑过来绕你转圈，好像你叫的不是它名字，而是"开饭了"加"我爱你"的合体', value: 5 }
         ]
       },
       {
-        id: 'q3', dim: 'S3',
-        text: '你家猫每天最期待的事情是？',
+        id: 'q3', dim: 'D3',
+        text: '你家有禁区（厨房台面/某个柜子），你发现你的猫？',
         options: [
-          { label: '吃饭。永远都是吃饭。', value: 1 },
-          { label: '发呆+晒太阳+偶尔玩一下', value: 2 },
-          { label: '占领家里最高的地方俯视众生', value: 3 }
+          { label: '根本没兴趣，它有它自己的领土，禁区是人类的发明，和它无关', value: 1 },
+          { label: '知道规矩，也真的没什么兴趣，禁区里没啥好的，不值得折腾', value: 2 },
+          { label: '进去过，被发现了就出来，也不太坚持，主要是好奇，不是执意违规', value: 3 },
+          { label: '你在的时候老实，你不在的时候进去，再出来，若无其事', value: 4 },
+          { label: '越是禁区越要进，你拦它它绕道，你关门它刨门，禁止的才是最香的', value: 5 }
         ]
       },
       {
-        id: 'q4', dim: 'E1',
-        text: '你出门一整天回来时，猫的反应是？',
+        id: 'q4', dim: 'D2',
+        text: '你的猫今天明显不高兴（原因不明），它选择了哪种表达方式？',
         options: [
-          { label: '该吃吃该睡睡，我不在它很开心', value: 1 },
-          { label: '过来蹭两下，然后又去睡了', value: 2 },
-          { label: '一直叫！吃不下饭！等我等到心碎', value: 3 }
+          { label: '躲进柜子，关上世界，冷战到底，不问不说，这口气咽不下去', value: 1 },
+          { label: '坐在你旁边，背对着你，无声谴责，大气都不出，但你感受到了', value: 2 },
+          { label: '把常待的地方换到了你旁边，没动作没声音，就是选了个离你更近的位置，说不说由你', value: 3 },
+          { label: '在你面前故意把什么东西推下去，然后用眼神说：你知道你做了什么', value: 4 },
+          { label: '走来走去，嚎叫，全家都要知道它今天有情绪，沉默是它不会的功课', value: 5 }
         ]
       },
       {
-        id: 'q5', dim: 'E2',
-        text: '你和猫的关系，更像？',
+        id: 'q5', dim: 'D7',
+        text: '你在家专心工作/刷手机，你的猫？',
         options: [
-          { label: '房东和租客，各过各的', value: 1 },
-          { label: '有时亲密有时冷淡，看心情', value: 2 },
-          { label: '它是我最重要的家人！', value: 3 }
+          { label: '一整天都不来找你，各过各的，平行宇宙，互不打扰，完美室友', value: 1 },
+          { label: '路过了一次，假装只是顺路，没有任何诉求，就是路过，真的', value: 2 },
+          { label: '来找了一次，蹭了你一下，确认你还在，然后找了个你能看到的地方待着', value: 3 },
+          { label: '在你旁边找个位置坐下来，不打扰，不说话，但要在视线范围内', value: 4 },
+          { label: '直接坐到键盘/手机上宣告：此刻，没有任何事比我更重要，请重新排优先级', value: 5 }
         ]
       },
       {
-        id: 'q6', dim: 'E3',
-        text: '你家猫睡觉最喜欢在哪里？',
+        id: 'q6', dim: 'D2',
+        text: '你今天明显情绪不好（压力、难过），你的猫？',
         options: [
-          { label: '它自己的猫窝里，有边界感', value: 1 },
-          { label: '沙发上、地上、随机位置', value: 2 },
-          { label: '必须贴着我睡，恨不得钻进被窝', value: 3 }
+          { label: '完全没感知，还是该干嘛干嘛，活在自己世界里', value: 1 },
+          { label: '感觉到了什么，悄悄挪到了旁边一点，不知道该怎么处理，但没走远', value: 2 },
+          { label: '来了，在你旁边找了个位置坐下，没有黏上来，但也没走，就那样陪着，不说话', value: 3 },
+          { label: '来蹭了你一下，然后在离你不远的地方坐着，不说话，不要求，就是在场', value: 4 },
+          { label: '直接爬上来，用全部体重压在你身上，等于是说：不管发生了什么，我在', value: 5 }
         ]
       },
       {
-        id: 'q7', dim: 'A1',
-        text: '你觉得猫会嫉妒你带回来的其他宠物吗？',
+        id: 'q7', dim: 'D3',
+        text: '你换了猫粮牌子（因为打折/断货），你的猫？',
         options: [
-          { label: '完全不会，它对一切都很淡定', value: 1 },
-          { label: '可能会有点不满，但能接受', value: 2 },
-          { label: '绝对会！它是我的唯一！', value: 3 }
+          { label: '嗅了嗅，然后正常吃了，能吃就行，不是美食评论家，随遇而安', value: 1 },
+          { label: '吃了，但明显没那么开心，每一口都吃出了抗议，用表情无声投诉', value: 2 },
+          { label: '吃了，但先嗅了很久，吃得很慢，每一口都在评判，整体接受但没那么痛快', value: 3 },
+          { label: '吃了几口，走开，然后饿着——等你自己意识到问题，换回来', value: 4 },
+          { label: '绝食。完全绝食。你跟它讲道理它也不听。最后你只好临时下单原来那款。它赢了', value: 5 }
         ]
       },
       {
-        id: 'q8', dim: 'A2',
-        text: '猫犯了错（抓沙发/打翻东西），被抓现行时会？',
+        id: 'q8', dim: 'D6',
+        text: '到了喂饭时间，但你还在睡。你的猫？',
         options: [
-          { label: '立刻转移视线，装作什么都没发生', value: 1 },
-          { label: '愣一下，然后继续做它的事', value: 2 },
-          { label: '不但不停，还要当着你的面继续做！', value: 3 }
+          { label: '它也还在睡，大家都不是时间观念很强的生命，今天推迟也行', value: 1 },
+          { label: '来卧室门口了，没声，但你感受到了一种无形的凝视', value: 2 },
+          { label: '进来了，在床边转了几圈，踩了踩被子，没有激进操作，但气氛已经不太对了', value: 3 },
+          { label: '走进来，在枕头旁边坐下，开始用眼神对你进行定点凌迟，每隔三分钟一次', value: 4 },
+          { label: '踩脸、推枕头、打翻床头水杯、嚎叫三连——计划就是计划，晚一分钟都是对秩序的冒犯', value: 5 }
         ]
       },
       {
-        id: 'q9', dim: 'A3',
-        text: '你觉得猫每天的"猫生"是有目标的吗？',
+        id: 'q9', dim: 'D3',
+        text: '你在逗它玩，手酸了想收玩具。你的猫？',
         options: [
-          { label: '目标就是：吃饭、睡觉、发呆、舔毛', value: 1 },
-          { label: '偶尔有目标，比如抓虫子的时候', value: 2 },
-          { label: '当然有！今天的目标是占领那个柜子顶部！', value: 3 }
+          { label: '它早就不感兴趣了，只是配合你，转身走了', value: 1 },
+          { label: '多看了一眼玩具，然后转身走——不稀罕，来去自由', value: 2 },
+          { label: '停在那儿看着玩具，眼神还在，但没扑上去，等你决定——收它跟，扔它接', value: 3 },
+          { label: '抬起爪子，意思是：还没好呢，再来一下嘛，就一下，最后一下', value: 4 },
+          { label: '直接扑上去把玩具压住，用身体占领，眼神宣告：游戏没有结束', value: 5 }
         ]
       },
       {
-        id: 'q10', dim: 'Ac1',
-        text: '猫做任何事情的动力来源主要是？',
+        id: 'q10', dim: 'D7',
+        text: '你出门好几天回来，你的猫？',
         options: [
-          { label: '本能驱动：饿了吃、困了睡、想玩就玩', value: 1 },
-          { label: '看心情和身体状态', value: 2 },
-          { label: '为了获得食物和关注！有动机的！', value: 3 }
+          { label: '看了你一眼，确认你还活着，继续睡，好像你只是去了趟厕所', value: 1 },
+          { label: '嗅了嗅你，把你全身检查了一遍，确认没有携带任何其他猫的气息，通过，散了', value: 2 },
+          { label: '认真嗅了你全身一遍，做了身份核实，通过，然后比平时多在你旁边待了一阵，没别的', value: 3 },
+          { label: '绕了你一圈，跟了你一会儿，若无其事地蹭了一下——欢迎回来，仅此而已', value: 4 },
+          { label: '大戏开演：嚎叫、蹭腿、追着你走、半小时不让你离开视线，消失的那几天你欠它的', value: 5 }
         ]
       },
       {
-        id: 'q11', dim: 'Ac2',
-        text: '猫遇到障碍物（关着的门）时，通常会？',
+        id: 'q11', dim: 'EASTER',
+        text: '这只猫的日常，你留下了多少记录？（照片+视频+截图+表情包，大概估一下）',
         options: [
-          { label: '在门口等，等我给它开门', value: 1 },
-          { label: '试几次，不行就放弃', value: 2 },
-          { label: '必须搞定它！一直挠门直到我投降！', value: 3 }
+          { label: '不到20%，猫是生活的一部分，不是全部', value: 1 },
+          { label: '大概一半，有点多但还在合理范围，别人说不了什么', value: 2 },
+          { label: '大概七八成是它，但我不会主动说，猫主人里这其实很正常', value: 3 },
+          { label: '超过一半，相册已经是它的相册，我的照片才是入侵者，这很正常对吧？', value: 4 },
+          { label: '什么叫"占多少"？我的手机是为它而存在的，没有"比例"这个概念', value: 5 }
         ]
       },
       {
-        id: 'q12', dim: 'Ac3',
-        text: '猫发现了蟑螂/虫子，它会？',
+        id: 'q12', dim: 'D6',
+        text: '你猫的"凌晨发疯运动会"是？',
         options: [
-          { label: '盯着看，然后失去兴趣走开', value: 1 },
-          { label: '玩一会儿就放弃', value: 2 },
-          { label: '不抓到誓不罢休，凌晨也要爬起来继续追！', value: 3 }
+          { label: '完全不存在，它不发疯，作息比我还自律，令人汗颜', value: 5 },
+          { label: '大概固定在某个时间，你已经有了"快了快了"的心理准备，混沌里有隐藏规律', value: 4 },
+          { label: '大概每天都有，但时间飘忽，你不去追踪就发现不了规律', value: 3 },
+          { label: '偶尔爆发，不规律，说来就来，你猜不到，只能接受命运的安排', value: 2 },
+          { label: '完全不规律，今天凌晨1点，明天凌晨4点，后天直接全天，它有它的混沌哲学', value: 1 }
         ]
       },
       {
-        id: 'q13', dim: 'So1',
-        text: '你带猫去宠物医院，它的反应是？',
+        id: 'q13', dim: 'D6',
+        text: '某件固定发生的事（喂饭/你该睡了/你快下班了），还没到你行动，你的猫会先出现提醒你吗？',
         options: [
-          { label: '缩成一团，害怕到发抖', value: 1 },
-          { label: '警惕但能配合，紧张但听话', value: 2 },
-          { label: '在医院里也能社交，到处闻', value: 3 }
+          { label: '不会，它没有时间观念，时间表是人类的焦虑，和它无关', value: 1 },
+          { label: '偶尔出现，说不准是不是在提醒你，也可能只是路过', value: 2 },
+          { label: '有时候会出现，你分不清是路过还是在提醒，给它算一半吧', value: 3 },
+          { label: '会来找你，在你面前转一圈，意思很明显但不强迫', value: 4 },
+          { label: '精准出现，眼神锁定，时间到了就是时间到了——你的手机闹钟都没它准', value: 5 }
         ]
       },
       {
-        id: 'q14', dim: 'So2',
-        text: '猫和其他猫/宠物之间，通常保持什么样的关系？',
+        id: 'q14', dim: 'D6',
+        text: '用一句话描述你的猫一天的时间表，最像哪个？',
         options: [
-          { label: '各自为政，保持距离，井水不犯河水', value: 1 },
-          { label: '有时一起玩，有时打架', value: 2 },
-          { label: '必须挤在一起睡！最好的朋友！', value: 3 }
+          { label: '每天不知道在干嘛，时间表是量子态，观测才有结果', value: 1 },
+          { label: '大概有个规律，但随时会有意外，反正它自有安排', value: 2 },
+          { label: '有个大概的节奏，偶尔跑偏，但误差在可接受范围内', value: 3 },
+          { label: '基本规律，偶尔会出人意料，但主线稳定', value: 4 },
+          { label: '固定地点、固定时间、固定程序，改变任何一项都会被它第一时间察觉并抗议', value: 5 }
         ]
       },
       {
-        id: 'q15', dim: 'So3',
-        text: '你感觉你家的猫，对待你和对待其他人有区别吗？',
+        id: 'q15', dim: 'D2D7',
+        text: '你和你的猫，最像下面哪种关系？',
         options: [
-          { label: '对我和别人一样，该高冷就高冷', value: 1 },
-          { label: '对我稍微好一点点，但差别不大', value: 2 },
-          { label: '完全不一样！对我是小天使，对别人是帝王！', value: 3 }
+          { label: '室友关系：住一起，互不打扰，偶尔点个头，各自安好，边界清晰', value: 1 },
+          { label: '暗恋关系：你很爱它，它有时候理你有时候不理，你还是爱，理不理你还是在', value: 2 },
+          { label: '邻居关系：有好感，偶尔互动，互相知道对方在，不打扰是默契，靠近是缘分', value: 3 },
+          { label: '老朋友关系：不用天天腻在一起，但它在，就是安全感，够了', value: 4 },
+          { label: '连体婴关系：它在哪里你眼睛就在哪里，离开视线会担心，同框是默认状态', value: 5 }
         ]
       }
     ];
@@ -937,130 +1098,95 @@
     intro: '无欲则刚，说的是猫，不是你。',
     desc: '挨了一刀之后，这只猫彻底悟了。撒娇？不撒。叫它？不叫。你伸出手，它用"和我有什么关系"的眼神结束这段对话，然后优雅转身。欲望这种东西，手术台上永远留住了。\n\n其实它就是另一个你。你口头禅是"随便""无所谓""都行"，表面佛系到极致，实际上欲望排队排到了明年。你只是把它们塞进了一个叫"成熟"的包装盒里，盖得很紧，偶尔缝隙里还漏出点味道。你不是真的不在乎，你是太在乎，所以不敢在乎。\n\n它是真绝了。你是假装绝了。你们住在一起，刚好平衡了彼此的欲望。\n\n<strong>「无欲则刚，说的是猫，不是你。」</strong>'
   },
-  RULE: {
-    code: 'RULE', cn: '窝里横',
-    intro: '说的是猫，还是你，你自己心里清楚。',
-    desc: '在家：踹你下床，霸占最好的位置，把你赶出沙发再若无其事躺下，推倒一切碍事的物品，用"这里现在是我的"的眼神宣示主权。一听门铃声：瞬间消失，蜷进柜子最深处，变成全世界最乖的生物，怎么叫都不应。在家横着走，出门怂成狗，切换精准，无缝衔接。\n\n其实它就是另一个你。外面你好说话，让着人，笑着点头，咽下去的话能绕地球三圈。但回到家，你才是那个横的、真实的、不需要解释的版本。不是胆小，是聪明——你只把真实的自己，留给最安全的地方。\n\n你和你的猫，都是这样活的。外面是好人，家里是暴君。\n\n<strong>「说的是猫，还是你，你自己心里清楚。」</strong>'
-  },
   SEXY: {
     code: 'SEXY', cn: '肚皮尤物',
     intro: '软下来，才是真的厉害。',
-    desc: '这只猫掌握了一项绝技：躺下去，露出肚皮，然后全世界融化。不分性别，不分年龄，不管你当时有多烦，肚皮一亮出来，你就缴械了。伸手去摸，它可能咬你——但你还是要摸。这就是它的权力，用柔软统治一切。\n\n其实它就是另一个你。你最怕的事之一是"表现得太需要"。你擅长体面，擅长保护自己，很少把软的那面直接摆出来给人看。但你养了一只把脆弱变成武器的猫，因为你内心深处也知道：真正的吸引力，不是硬撑，是敢于展示那个最柔软的地方。\n\n它用肚皮征服了你，而你连给别人看肚皮的勇气，还在攒。\n\n<strong>「软下来，才是真的厉害。」</strong>'
+    desc: '这只猫掌握了一项绝技：随便找个地方一躺，肚皮朝天，然后全世界都融化了。不分性别，不分年龄，不管你当时有多烦，肚皮一亮出来，你就缴械了。它不主动找你，不撒娇不嚎叫，就那样躺在那儿，存在本身就是招数。伸手去摸，它可能咬你——但你还是忍不住要摸。\n\n其实它就是另一个你。你不太擅长主动表达，也不会刻意讨好任何人。但你身上有某种东西，让人觉得靠近你是安全的。不是你做了什么，是你那股"不强求"的气场，反而比努力吸引更有吸引力。\n\n它用一个肚皮证明了：不必用力，也可以让人走不开。\n\n<strong>「软下来，才是真的厉害。」</strong>'
   },
   MALO: {
     code: 'MALO', cn: '打工猫喽',
-    intro: '打工猫和打工人，是这个时代最真实的搭子。',
+    intro: '认命不是认输，还在折腾就还算数。',
     desc: '每天无比忙碌，但你说不清楚它在忙什么。走来走去，跑上跑下，推一下这个，踩一下那个，折腾完了躺倒，喘口气，再折腾。也不是在玩，也不是在工作，就是在折腾。主打一个：我在努力，我的努力你别问有没有结果。\n\n其实它就是另一个你。你每天在公司当牛做马，忙得脚不沾地。明明累得要死，却不敢停下来。你就是当代最典型的"吗喽打工人"，拿着最少的钱，干着最多的活。不是每一脚都踩在正确的地方，不是每一次折腾都有意义，但你还没停下来，这件事本身就算数。\n\n你和它都是认命的人。但认命不是认输，是：我还在，就还算数。\n\n<strong>「打工猫和打工人，是这个时代最真实的搭子。」</strong>'
   },
   BABE: {
-    code: 'BABE', cn: '心头肉',
-    intro: '全情投入不是病，是你还没有放弃的证明。',
-    desc: '你的猫不一定最好看，不一定最乖，但在你这里它是满分。它打了个喷嚏你拍下来，它睡了个奇怪姿势你发朋友圈，它今天多吃了三粒猫粮你都觉得是今天最好的事。捧在手心怕摔了，含在嘴里怕化了——这不是溺爱，这是你认真起来的样子。\n\n其实它就是另一个你。你是那种会把爱全部给出去的人。不算回报，不设条件，只要你愿意让我爱你，我可以爱得很用力。你等了很久，等一个值得你全力以赴的对象。它来了，就是这个踩烂你键盘、喝完你水杯、然后若无其事卧在你胸口的小东西。\n\n你对它的爱，是你证明自己还能爱的方式。\n\n<strong>「全情投入不是病，是你还没有放弃的证明。」</strong>'
-  },
-  DEAD: {
-    code: 'DEAD', cn: '躺平搭子',
-    intro: '躺平是一种态度，不是一种失败。你的猫比你先想通了。',
-    desc: '它没有目标，没有规划，没有上进心。你坐着，它躺着。你躺着，它躺得更开。人家猫在抓玩具，它在发呆。人家猫在巡逻领地，它在原地旋转找角度然后继续睡。它活得比任何生产力APP都坦诚：人生不需要那么多意义，能躺下去就是胜利。\n\n其实它就是另一个你。你自己也在练习一件事：放下。不是真的什么都不做，是不再为"没有在努力"而内疚。你和你的猫达成了某种同盟——不卷，不比，不解释。今天躺平了，明天再说，先把今天过了再谈意义。\n\n它不是堕落，它是自由。你正在学的，就是这个。\n\n<strong>「躺平是一种态度，不是一种失败。你的猫比你先想通了。」</strong>'
+    code: 'BABE', cn: '恋爱脑',
+    intro: '爱了就是爱了，不爱才需要解释。',
+    desc: '你不在的时候它在门口等，你在的时候它不让你离开视线。你多看了别的猫一眼，它走过来坐你腿上，用体重宣告归属权。你打电话说笑，它踩你嘴——不是想参与，是觉得你的注意力不应该给别人。它爱你，但它的爱里带控制欲。嚎叫、撒娇、占位、记仇，一整套。\n\n其实它就是另一个你。你就是那种全情投入的人。爱了就爱到骨子里，不会算计，不留后路。你知道这样有点累，但你也知道你无法对喜欢的东西保持距离。你叫它恋爱脑，但你清楚那不是病，是你选择的活法。\n\n它就是你在猫里的镜子。同款恋爱脑，一个有毛，一个没毛。\n\n<strong>「爱了就是爱了，不爱才需要解释。」</strong>'
   },
   FIRE: {
     code: 'FIRE', cn: '显眼包',
-    intro: '低调留给不需要证明自己的人。你和你的猫，都不是那种人。',
+    intro: '不争第一，争最显眼。',
     desc: '哪里有热闹，哪里就有它。你在打电话，它踩键盘；你在开会，它进镜头；你吃饭，它坐你面前；你睡觉，它踩你脸。不是捣乱，是宣告：这个空间里，没有什么比我更重要。它进门第一件事，永远是找到当前最重要的物品，把它打翻，然后用"我只是路过"的眼神看着你。\n\n其实它就是另一个你。你不一定在外面高调，但你心里有个声音从没消停过：我来了，你们都应该知道。显眼包不是贬义词，是你在拒绝消失，是你在说——看见我，这个要求不过分。\n\n你没养一只显眼包，你养了一个替你大声说出那句话的生命。\n\n<strong>「低调留给不需要证明自己的人。你和你的猫，都不是那种人。」</strong>'
   },
-  SOLO: {
-    code: 'SOLO', cn: '自给自足',
-    intro: '独处，是一个人的清欢。',
-    desc: '非常独立，有自己的小世界。不需要你时刻陪伴，也不会过分依赖你。它会自己吃饭、自己睡觉、自己玩，你在不在家对它来说都一样。你凑过去想撸它，它会嫌弃地躲开，仿佛在说：莫挨老子，独自美丽。\n\n其实它就是另一个你。你是个社恐，讨厌社交，喜欢独处。你觉得一个人待着最舒服，不用迎合别人，不用伪装自己。你有自己的节奏，不喜欢被别人打扰。不是孤僻，是你知道，高质量的独处，远胜过低质量的社交。\n\n你们都是独立的灵魂，互相陪伴，互不打扰。\n\n<strong>「独处，是一个人的清欢。」</strong>'
-  },
   BOSS: {
-    code: 'BOSS', cn: '老板',
-    intro: '打工人，打工魂，打工都是人上人。',
-    desc: '永远站在冰箱顶上俯视你，不主动贴贴，只在需要时勉强让摸。它的话就是圣旨，你必须无条件服从。它打你不能还手，骂你不能还口。你每天辛辛苦苦赚钱，就是为了养它这个老板。你是它的专属打工人。\n\n其实它就是另一个你。你在公司是个唯唯诺诺的打工人，回到家终于可以当一回老板。你把所有的领导欲都发泄在了它身上，却没想到最后被它反杀。你以为你是主人，其实你只是个铲屎的。\n\n你以为你是老板，其实你是它的专属打工人。\n\n<strong>「打工人，打工魂，打工都是人上人。」</strong>'
+    code: 'BOSS', cn: '霸总',
+    intro: '霸总不开口，开口即定夺。',
+    desc: '它不主动撒娇，不凑上来嚎叫，就站在高处用"批准"或"不批准"的眼神处理你的每一个动作。沙发右边那个位置是它的，你坐了它会坐你腿上把你变成椅子。你拿起它不认识的东西，它走过来检查，检查完，决定你可以继续。作息固定，打乱了它会让你意识到这是个错误。\n\n其实它就是另一个你。你在外面不一定高调，但你心里有一套标准，偏差太大你会不舒服。你不喜欢被乱安排，不喜欢规则被随便破坏，哪怕嘴上不说，表情已经出卖了你。你的猫只是比你更敢直接执行。\n\n你以为你是主人，其实你只是它批准在这里住的房客。\n\n<strong>「霸总不开口，开口即定夺。」</strong>'
   },
   OJBK: {
     code: 'OJBK', cn: '关我屁事',
-    intro: '关我屁事，是人生最好的解药。',
-    desc: '天塌下来有高个子顶着，地球爆炸也与它无关。你哭它在睡觉，你笑它在睡觉，你搬家它还在睡觉。仿佛这个世界上没有任何事情能让它产生情绪波动。天塌下来，也与我无关。\n\n其实它就是另一个你。你经历了太多事情，已经学会了"关我屁事"四个字。不再为别人的事情内耗，不再为无关的人生气，只想过好自己的小日子。不是冷漠，是你终于明白，人生最重要的，是取悦自己。\n\n它不是冷漠，是在教你怎么拒绝内耗。\n\n<strong>「关我屁事，是人生最好的解药。」</strong>'
-  },
-  FOOL: {
-    code: 'FOOL', cn: '傻帽',
-    intro: '傻猫配傻主人，天生一对。',
-    desc: '它是猫界公认的智商洼地。走路撞墙、跳桌踩空、把自己卡进拖鞋里是日常操作。追自己的尾巴能追到原地转圈摔倒，喝水把鼻子埋进碗里呛到打喷嚏。脑子是个好东西，可惜它没有。\n\n其实它就是另一个你。你在外人面前装得成熟稳重、滴水不漏，其实私下里经常犯傻。丢钥匙、忘带手机、买东西付了钱没拿东西是家常便饭。但你没心没肺，乐观开朗，身边的人都被你的傻气治愈。\n\n它不是真的傻，是在你面前才敢卸下所有防备。\n\n<strong>「傻猫配傻主人，天生一对。」</strong>'
+    intro: '关我屁事，是认真活过的人才能说出的话。',
+    desc: '你刚做了一个改变人生的决定，你的猫在睡觉。你哭了十分钟，你的猫还在睡觉。你把这一周的情绪压力一口气爆发出来，你的猫抬头看了你一眼，确认你还活着，继续睡觉。不是它冷漠，是它真的觉得这些事和它没有任何关系——每一件都不关它屁事。\n\n其实它就是另一个你。你练了很久才练成现在这样：不是每件事都需要你有态度，不是每个人都值得你动情绪。你学会了一件别人觉得很难的事：放下。不是麻木，是你终于搞清楚了什么关你事，什么真的关你屁事。这条线画清楚之后，你省下了很多能量。\n\n你们住在一起，不需要解释，不需要表演，各过各的——这反而是一种松。\n\n<strong>「关我屁事，是认真活过的人才能说出的话。」</strong>'
   },
   HUGS: {
     code: 'HUGS', cn: '粘人挂件',
     intro: '被需要，也是一种幸福。',
-    desc: '它是你的人形魔术贴，走哪跟哪。你去厕所它守着，你睡觉它躺着，你工作它趴在键盘上。一刻都不想离开你，恨不得长在你身上。走哪跟哪，撕都撕不下来。\n\n其实它就是另一个你。你内心极度缺乏安全感，渴望被爱、被陪伴。你讨厌孤独，喜欢和喜欢的人待在一起。你害怕被抛弃，所以总是紧紧抓住身边的人。\n\n它粘你的样子，就是你渴望被爱的样子。\n\n<strong>「被需要，也是一种幸福。」</strong>'
+    desc: '它是你的人形魔术贴，走哪跟哪。你去厕所它守着，你睡觉它躺着，你工作它趴在键盘上。一刻都不想离开你，恨不得长在你身上。你以为你在养一只猫，实际上你们形成了某种引力，双向的，谁也没有刻意为之。\n\n你选了它，不是巧合。你的爱比你想象的多，而且需要一个能全部接收的地方。你不是那种爱会缩着藏着的人——你愿意靠近，愿意黏着，愿意把在乎表现出来，不觉得这有什么可为难的。你对"在一起"这件事有天然的渴望，不是依赖，是你本来就是这样的人。\n\n这件事是双向的。它需要你，你也需要它。两个都愿意靠近的生命待在一起——这比你想象的稀有。\n\n<strong>「靠近，是一种勇气，不是软弱。」</strong>'
   },
   CRAZ: {
-    code: 'CRAZ', cn: '敏感疯批',
-    intro: '偶尔发疯，有益身心健康。',
-    desc: '每天上蹿下跳，突然狂奔，对着空气哈气，精力旺盛到爆炸。你永远猜不透它在想什么，也永远不知道它下一秒会做出什么事。突然发疯，然后突然躺平。\n\n其实它就是另一个你。你现实里文静内敛，不敢表达自己的情绪，总是在压抑自己。你不敢在别人面前发疯，怕被别人说"不正常"。但你内心深处，也想不顾一切地疯一次。\n\n它不是疯，是在替你释放所有被压抑的情绪。\n\n<strong>「偶尔发疯，有益身心健康。」</strong>'
+    code: 'CRAZ', cn: '疯批本批',
+    intro: '看不懂，不代表没道理。',
+    desc: '凌晨两点在客厅冲刺，凌晨两点零三分在窗台发呆，凌晨两点零五分对着墙壁低吼一声，然后叼起一只袜子消失进卧室。没有起因，没有结果，没有供你参考的逻辑。它有它自己的宇宙，你只是偶尔会路过。就算你全程目击，你也不会明白刚才发生了什么。\n\n其实它就是另一个你。你的有些状态，外人也是看不懂的。不是真的失控，是你在一个只有自己在的频道里运行。你懒得解释，解释也说不清，就让别人觉得你神经好了。你清楚自己在做什么，只是那套逻辑不对外开放。\n\n它不是乱来，它有自己的意义——只是那个意义不属于你。你接受了这件事，你们就相处得出乎意料的好。\n\n<strong>「看不懂，不代表没道理。」</strong>'
   },
   FOOD: {
     code: 'FOOD', cn: '干饭机器',
     intro: '干饭不积极，思想有问题。',
-    desc: '它的眼里只有吃的，听到开罐声百米冲刺，碗永远是空的。为了一口吃的，什么握手、坐下、转圈的技能都能学会。甚至会自己开柜子偷零食。除了吃，啥也不会。\n\n其实它就是另一个你。你是个不折不扣的吃货，没有什么烦恼是一顿饭解决不了的。你懂得犒劳自己，热爱生活，相信"吃饱了才有力气干活"。\n\n它干饭的样子，就是你对待生活的样子。\n\n<strong>「干饭不积极，思想有问题。」</strong>'
+    desc: '它的眼里只有吃的，听到开罐声百米冲刺，碗永远是空的。为了一口吃的，什么握手、坐下、转圈的技能都能学会。甚至会自己开柜子翻找。饭点到了，它比你的手机闹钟还准。对它来说，吃不只是吃——是每天最确定会发生的好事。\n\n食物对你也不只是食物。是一天里最确定的事，是最能落地的那种快乐，是压力大到说不出话的时候，仍然可以给自己的一个交代。你不是在逃避，你只是知道：先吃，再说。吃饱了，很多事情看起来没有刚才那么难。\n\n你和它都是相信"好好吃饭"这件事的人。在越来越多的东西靠不住的时候，饭还在，就还行。\n\n<strong>「干饭是真的在过日子，不是在凑合。」</strong>'
   },
   YOLO: {
     code: 'YOLO', cn: '穷开心',
     intro: '开心一天，不开心也是一天，不如开心过好每一天。',
-    desc: '没心没肺，每天都开开心心的。一个纸团就能玩一下午，一缕阳光就能让它高兴半天。它的快乐很简单，也很纯粹。没心没肺，快乐加倍。\n\n其实它就是另一个你。你经历了太多不开心的事情，所以格外珍惜简单的快乐。你不再追求大富大贵，只想每天都能开开心心的。你知道，快乐是自己给的，不是别人给的。\n\n它不是傻，是在教你怎么简单快乐地生活。\n\n<strong>「开心一天，不开心也是一天，不如开心过好每一天。」</strong>'
-  },
-  ACT: {
-    code: 'ACT', cn: '戏精绿茶',
-    intro: '人生如戏，全靠演技。',
-    desc: '它是奥斯卡级别的影帝，演技精湛到可以骗过所有人。为了骗罐头，它会装瘸、装饿、装可怜。只要能得到吃的，什么戏都能演。装瘸骗罐头，演技精湛。\n\n其实它就是另一个你。你每天在公司扮演好员工，在朋友面前扮演开心果，在家人面前扮演懂事的孩子。你也是个演员，只是没有舞台。\n\n它演戏是为了一口吃的，你演戏是为了生活。\n\n<strong>「人生如戏，全靠演技。」</strong>'
+    desc: '没心没肺，每天都开开心心的。一个纸团就能玩一下午，一缕阳光就能让它高兴半天。昂贵的玩具在角落落灰，纸箱永远是最好的宫殿。不是它不懂好坏，是它有一套只有自己知道的快乐逻辑。\n\n你比大多数人更早想清楚了一件事：快乐不需要理由，也不欠任何人一个解释。你不是没有在乎的东西，你只是不让"在乎的东西"把你整个人都压住。你知道怎么在很小的事情里找到真实的高兴——不是因为没有别的，是你选择先看这个。\n\n它不傻，它只是不浪费注意力在那些让它开心不起来的事情上。你也是。\n\n<strong>「能把当下过好，是一种被严重低估的能力。」</strong>'
   },
   TALK: {
     code: 'TALK', cn: '碎嘴话唠',
-    intro: '话痨的人，都有一颗善良的心。',
-    desc: '它是个不折不扣的话痨。从你早上起床开始，它就一直喵喵叫个不停。吃饭叫、喝水叫、上厕所叫、看到你也要叫，仿佛有说不完的话。从早叫到晚，有说不完的话。\n\n其实它就是另一个你。你也是个话痨，遇到喜欢的人就说个不停。你心里藏不住事，什么都想跟别人分享。你相信，说出来，烦恼就会少一半。\n\n它不是话多，是在跟你分享它的猫生。\n\n<strong>「话痨的人，都有一颗善良的心。」</strong>'
+    intro: '能好好说话，是福气。',
+    desc: '你开门，它叫。你去厕所，它守在门外叫。你打电话，它在背景里叫。你关灯睡觉，它趁着黑暗讲了二十分钟你完全听不懂的猫话。不是要什么，就是要说。不说不舒服，说了不一定有结论，但一定要发出声音——沉默对它来说是种消耗，不是休息。\n\n其实它就是另一个你。你不是那种能把事情藏住的人。脑子里装了什么，总要找地方放出去。不一定是倾诉，可能只是发了条语音，说了句"你猜怎么着"然后讲了五分钟。不是矫情，是你的情绪需要出口——说出来，才算真实发生过，才算处理完了。\n\n你们住在一起不会觉得安静。一个在说，一个在听，或者两个都在说。但正是这些吵嚷，让家里有了点烟火气。\n\n<strong>「能好好说话，是福气。」</strong>'
   },
-  SNAC: {
-    code: 'SNAC', cn: '零食小偷',
-    intro: '没有什么烦恼是一包零食解决不了的。',
-    desc: '它是专业的零食小偷。你的薯片、饼干、巧克力，只要放在桌上，一转眼就会被它偷走。它甚至会自己开抽屉、开柜子，寻找藏起来的零食。没有它偷不到的零食。\n\n其实它就是另一个你。你也是个吃货，永远抵挡不住零食的诱惑。你总是偷偷藏零食，怕被别人发现。你知道，零食是治愈一切不开心的良药。\n\n它不是偷零食，是在和你分享快乐。\n\n<strong>「没有什么烦恼是一包零食解决不了的。」</strong>'
-  },
-  CLEAN: {
-    code: 'CLEAN', cn: '洁癖强迫',
+  CLEN: {
+    code: 'CLEN', cn: '洁癖星人',
     intro: '干净，是一个人最好的气质。',
-    desc: '它有严重的洁癖。每天要舔毛800遍，身上不能有一点脏东西。拉完屎要埋半天，直到自己满意为止。甚至会嫌弃你脏，不让你碰它。每天舔毛800遍，嫌你脏。\n\n其实它就是另一个你。你也有洁癖，家里要一尘不染，东西要摆放整齐。你受不了一点脏乱差，否则会浑身不舒服。你相信，干净的环境，能带来干净的心情。\n\n它不是洁癖，是在教你怎么精致地生活。\n\n<strong>「干净，是一个人最好的气质。」</strong>'
+    desc: '它有严重的洁癖。每天要舔毛800遍，身上不能有一点脏东西。拉完屎要埋半天，直到自己满意为止。甚至会嫌弃你脏，不让你碰它。不是在讲卫生，是在维护某种你看不见但它感受得到的秩序感——东西在对的位置，身上是干净的，世界才是对的。\n\n你们之间有个默契，从来没说出口：整洁不只是习惯，是情绪管理系统。当外面太乱、太吵、太多东西同时压过来的时候，你会回来把桌面清一遍，把手洗一遍，把衣服叠整齐。不是强迫，是你知道这个动作能让你的内部重新安静下来。\n\n它舔毛，你整理。同一件事，不同的形式。你们都在用"秩序"和这个世界讲和。\n\n<strong>「把身边的事理干净，是你能控制的最小的一块地方。但有时候，够了。」</strong>'
   },
   WOC: {
-    code: 'WOC', cn: '破坏王者',
-    intro: '偶尔拆家，有益身心健康。',
-    desc: '它是专业的拆迁队队长。沙发、窗帘、耳机线、化妆品，没有它拆不坏的东西。每天回家，你永远不知道会看到什么惊喜。没有它拆不坏的东西。\n\n其实它就是另一个你。你内心压抑了太多情绪，不敢在别人面前发泄。只能看着你的猫替你搞事，然后在心里默默说一句"WOC！"。\n\n它不是在拆家，是在替你释放所有的不满。\n\n<strong>「偶尔拆家，有益身心健康。」</strong>'
-  },
-  RARE: {
-    code: 'RARE', cn: '爵士好猫',
-    intro: '优雅永不过时。',
-    desc: '举止优雅，走路带风，自带贵族气质。它不会像别的猫一样上蹿下跳，也不会随地乱拉乱尿。它吃饭细嚼慢咽，睡觉姿势端正，像个绅士一样。举止优雅，自带贵族气质。\n\n其实它就是另一个你。你追求精致的生活，注重细节，有自己的品味和格调。你不喜欢随波逐流，只想活出自己的样子。\n\n它不是猫，是和你一样优雅的贵族。\n\n<strong>「优雅永不过时。」</strong>'
+    code: 'WOC', cn: '握草无敌',
+    intro: '每次回家都是开盲盒，奖品是废墟。',
+    desc: '你推开门的那一秒，就知道今天又发生了什么。它坐在现场中央，表情平静，用"你终于回来了"的眼神看着你。窗帘在地上，耳机线弯成了新造型，不知道什么东西扣在了键盘上。它没有逃，没有愧疚，就静静等你消化眼前这一切。握草。\n\n其实它就是另一个你。你就是那种嘴上说"这猫真的要命"，手已经伸过去抱它的人。你对特定来源的混乱有极高容忍度——别人造的乱你受不了，它造的你笑一下就算了。不是没原则，是你很清楚：有些乱，是值得的。\n\n它不是在拆家。它在测试你的底线，而你每次都让它过了。\n\n<strong>「握草，但还是爱它。」</strong>'
   },
   GOGO: {
-    code: 'GOGO', cn: '跑酷专员',
+    code: 'GOGO', cn: '跑酷选手',
     intro: '生命在于运动，跑酷在于拉屎。',
-    desc: '它是天生的跑酷运动员。家里的沙发、桌子、衣柜，都是它的跑酷场。尤其是每天拉完屎之后，它会在家里疯狂跑酷，仿佛在庆祝什么。每天拉完屎都跑酷。\n\n其实它就是另一个你。你每天被工作压得喘不过气，只有在下班之后，才能释放自己的活力。你也想不顾一切地跑一次，跳一次，疯一次。\n\n它不是在跑酷，是在替你释放所有的压力。\n\n<strong>「生命在于运动，跑酷在于拉屎。」</strong>'
+    desc: '它是天生的跑酷运动员。家里的沙发、桌子、衣柜，都是它的跑酷场。尤其是每天拉完屎之后，它会在家里疯狂跑酷，仿佛在庆祝什么重大的事情。完全不在乎有没有观众，不在乎方向，不在乎目的。跑起来就是跑起来了。\n\n其实它是你不敢成为的那个版本。那个版本的你，不问有没有意义就先动了。不等准备好，不等时机对，不等别人认可——就是想动，就动了。你不是不想，是你给"想"这件事加了太多前提条件，结果前提一直没满足，这件事就一直搁着。\n\n它替你跑了那段你一直想跑但还没跑的路。你看着它的时候，羡慕的不是速度，是那种不需要理由就能出发的状态。\n\n<strong>「出发不需要完美的理由。」</strong>'
   },
   ZZZZ: {
-    code: 'ZZZZ', cn: '希腊睡神',
-    intro: '春困秋乏夏打盹，睡不醒的冬三月。',
-    desc: '它是古希腊掌管睡觉的神。一天能睡23小时，还有1小时在打哈欠。吃饭睡、走路睡、玩着玩着也能睡着。你甚至怀疑它是不是被下了沉睡魔咒。一天睡23小时，还有1小时在打哈欠。\n\n其实它就是另一个你。你每天都睡不够，上班睡、下班睡、周末能睡一整天。你最大的梦想就是不用上班，每天在家睡觉。\n\n它不是懒，是在替你补觉。\n\n<strong>「春困秋乏夏打盹，睡不醒的冬三月。」</strong>'
+    code: 'ZZZZ', cn: '瞌睡虫',
+    intro: '把觉睡好，是认真生活的一部分。',
+    desc: '它的宇宙里，有一半以上是睡眠。不固定的地方，不固定的时间，但只要可以，它就窝进去。你的存在对它来说是背景——不打扰它，它就活得很好。你喊它，它不一定理。你靠近，它可能挪一下身体，继续睡。没有表演，没有姿态，就是真的在睡。\n\n其实它就是另一个你。你对"休息"这件事有很认真的态度。不是逃避，是你真的清楚——睡好觉本身就是一件重要的事，不需要找理由，不需要对任何人解释。你周围可能有很多声音告诉你要"利用时间"，而你选择了先把自己充满电。\n\n它不是懒，是一个认真对待睡眠的生命。你也是。\n\n<strong>「把觉睡好，是认真生活的一部分。」</strong>'
   },
   SOUL: {
     code: 'SOUL', cn: '灵魂床伴',
     intro: '能被一只猫懂，说明你值得被懂。只是以前遇到的，段位不够。',
-    desc: '说不清和这只猫的关系。它不是最黏你的，不是最好看的，但它懂你。你难过时它来，你压力大时它来，你凌晨发呆时它默默躺到你旁边，不要求，不解释，只是出现。懂你的欲言又止，陪你睡遍春夏秋冬，什么时候该在，什么时候该走，拿捏得刚刚好。\n\n其实它就是另一个你。你在人和人之间有过某种疲倦。不是大伤，是那种"我说了你也不一定懂，算了"的疲倦。你说的话被打断，你的感受被轻描淡写，慢慢地你学会了不说。但这只猫，它知道。不需要你解释，它就知道了。\n\n你找了很久的那种懂，原来一直睡在你旁边。\n\n<strong>「能被一只猫懂，说明你值得被懂。只是以前遇到的，段位不够。」</strong>'
+    desc: '它不是那种安静待在角落的猫。它用力爱，用力黏，用力表达，用力要求。你刷手机，它要趴在屏幕上；你睡觉，它要贴着你；你出门，它要送到门口；你回来，它第一个感应到。声音大，存在感强，爱得不留余地。有时候你觉得吵，但有时候你回头想——被人这么明确地需要，其实很踏实。\n\n其实它就是另一个你。你不是会把情感藏起来的人。喜欢就说，在意就表现，爱就用力爱，不保留，不算计。你知道这样的自己有时候太满，但你也知道，那些真正留下来的人，恰恰是因为你这份用力。\n\n它把所有的感情都给了你，一点没留在自己身上。这是它的风格，也是你的。\n\n<strong>「能被一只猫懂，说明你值得被懂。只是以前遇到的，段位不够。」</strong>'
   },
   LUCK: {
     code: 'LUCK', cn: '招财猫',
     intro: '猫来富，狗来贵，招财猫到家，好运挡不住。',
-    desc: '它是你的专属招财童子。自从它来了之后，你升职加薪、中奖、遇到好事的概率直线上升。它特别喜欢趴在你的钱包和银行卡上，仿佛在给你聚财。猫来富，好运挡不住。\n\n其实它就是另一个你。你一直相信努力会有回报，善良的人总会有好运。你待人真诚，乐于助人，所以好运总会降临在你身上。\n\n它不是一只普通的猫，是上天派来给你送财的福星。\n\n<strong>「猫来富，狗来贵，招财猫到家，好运挡不住。」</strong>'
+    desc: '它是你的专属招财童子。自从它来了之后，你遇到好事的频率，你自己都注意到了。它特别喜欢趴在你的钱包和银行卡上，那个眼神不像是偶然——像是在替你镇着什么。猫来富，好运挡不住。\n\n你确实比别人好运——但你可能没注意到，你的好运很多是你自己制造的。你对人真诚，所以事情回到你手里的时候带着温度。你不计较，所以留给你的缝隙反而比别人多。你相信好事会发生，所以你总在看着它，别人已经低头走开了。\n\n它不是在给你招财。它是在陪着那个一直相信好事会发生的你，一起等那件好事。\n\n<strong>「好运是真的。只不过它更喜欢停在那些做好准备的人身上。」</strong>'
   },
   MUM: {
     code: 'MUM', cn: '妈猫',
     intro: '原来被爱，是这种感觉。',
-    desc: '它把你当孩子养。会给你舔头发，会把它最喜欢的玩具叼给你，会在你难过的时候舔掉你的眼泪。它甚至会担心你饿死，把死老鼠叼到你床上。它把你当孩子养。\n\n其实它就是另一个你。你总是在照顾别人，却很少有人照顾你。直到遇到它，你才知道被人捧在手心里是什么感觉。\n\n它不是你的猫，是你的猫妈妈。\n\n<strong>「原来被爱，是这种感觉。」</strong>'
+    desc: '它把你当孩子养。会给你舔头发，会把它最喜欢的玩具叼给你，会在你难过的时候蹭过来靠着你。它甚至会担心你饿死，把死老鼠叼到你床上——礼物，它是认真的。它把你当孩子养，没有经过你的同意，就这样决定了。\n\n不是每个人都被猫妈妈选中过。它选你，不是因为你展示了什么，是因为它感受到了你需要。你常常在照顾别人，常常是那个撑着的人，不太习惯让别人来照顾。然后这只猫悄悄把爪子搭在你身上，那种感觉——是很久没有过的，被惦记的感觉。\n\n它不是你的猫，是你的猫妈妈。\n\n<strong>「原来被爱，是这种感觉。」</strong>'
   },
   ANCE: {
     code: 'ANCE', cn: '小祖宗',
@@ -1070,26 +1196,19 @@
 };
     const TYPE_IMAGES = {
   MONK:  './image/MONK.png',
-  RULE:  './image/RULE.png',
-  SEXY:  './image/SEXY.png',
   MALO:  './image/MALO.png',
   BABE:  './image/BABE.png',
-  DEAD:  './image/DEAD.png',
   FIRE:  './image/FIRE.png',
-  SOLO:  './image/SOLO.png',
   BOSS:  './image/BOSS.png',
   OJBK:  './image/OJBK.png',
-  FOOL:  './image/FOOL.png',
   HUGS:  './image/HUGS.png',
   CRAZ:  './image/CRAZ.png',
   FOOD:  './image/FOOD.png',
   YOLO:  './image/YOLO.png',
-  ACT:   './image/ACT.png',
   TALK:  './image/TALK.png',
-  SNAC:  './image/SNAC.png',
-  CLEAN: './image/CLEAN.png',
+  CLEN:  './image/CLEAN.png',
   WOC:   './image/WOC.png',
-  RARE:  './image/RARE.png',
+  SEXY:  './image/RARE.png',
   GOGO:  './image/GOGO.png',
   ZZZZ:  './image/ZZZZ.png',
   SOUL:  './image/SOUL.png',
@@ -1097,109 +1216,65 @@
   MUM:   './image/MUM.png',
   ANCE:  './image/ANCE.png'
 };
-    const NORMAL_TYPES = [
-  { code: 'MONK',  pattern: 'MHH-MHH-HMH-LLM-HHH' },
-  { code: 'RULE',  pattern: 'HLM-MML-MLM-HLH-HLH' },
-  { code: 'SEXY',  pattern: 'HHL-MHH-HMM-MLM-HMH' },
-  { code: 'MALO',  pattern: 'LHM-LML-LLH-HML-LHH' },
-  { code: 'BABE',  pattern: 'MHM-HHM-MMH-LMM-LLL' },
-  { code: 'DEAD',  pattern: 'MML-MML-LML-MML-LHM' },
-  { code: 'FIRE',  pattern: 'MHL-MMH-MLH-HML-MHL' },
-  { code: 'SOLO',  pattern: 'HHL-HLH-HMH-LHH-HHH' },
-  { code: 'BOSS',  pattern: 'HHH-HMH-MHH-HHH-MHL' },
-  { code: 'OJBK',  pattern: 'MLM-MMH-MLM-MLM-MHM' },
-  { code: 'FOOL',  pattern: 'LLH-LHM-MLM-LLM-LMH' },
-  { code: 'HUGS',  pattern: 'LML-LML-MML-LMM-LMH' },
-  { code: 'CRAZ',  pattern: 'MML-MHM-MML-MHM-MLH' },
-  { code: 'FOOD',  pattern: 'HHH-LMH-LLH-HHH-LML' },
-  { code: 'YOLO',  pattern: 'LLM-LLH-LMH-LLH-MLH' },
-  { code: 'ACT',   pattern: 'HLM-HLL-HLL-LLH-HHL' },
-  { code: 'TALK',  pattern: 'MML-MHM-MHH-HHH-HLM' },
-  { code: 'SNAC',  pattern: 'HHH-LMH-HLH-HHH-LML' },
-  { code: 'CLEAN', pattern: 'HHH-HHH-HHL-HHH-HHM' },
-  { code: 'WOC',   pattern: 'LLH-LLL-LHL-LLH-LHM' },
-  { code: 'RARE',  pattern: 'HHM-HMH-HHH-MLM-HHL' },
-  { code: 'GOGO',  pattern: 'LLH-LLL-LLH-HHH-MLM' },
-  { code: 'ZZZZ',  pattern: 'LLH-LMM-LLM-LLM-LHL' }
-];
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // 4D类型原型向量：[D2情绪, D7社交, D3控制, D6节律]  各维度1~5
+    // 1/2=L(低), 3=M(中), 4/5=H(高)  zone阈值: <2.5=L, >3.5=H, else M
+    // 所有16个常规类型 zone profile 唯一（Python已验证）
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    const NORMAL_TYPES = window.NORMAL_TYPES = [
+      // ── L群（D2/D7均低=冷漠孤独）────────────────────────────
+      { code: 'ZZZZ',  vec: [2, 2, 3, 2] }, // LLML 偏冷淡，偏独，中控制，偏混沌（瞌睡虫）
+      { code: 'OJBK',  vec: [1, 1, 1, 3] }, // LLLM 冷漠孤独随性，节律适中
+      { code: 'MONK',  vec: [1, 1, 3, 5] }, // LLMH 冷漠孤独，中等控制+极规律（戒律感）
+      { code: 'CLEN',  vec: [1, 1, 5, 3] }, // LLHM 冷漠孤独，极控制欲（洁癖），中等节律
+      // ── 混合低群 ─────────────────────────────────────────────
+      { code: 'BOSS',  vec: [1, 3, 5, 4] }, // LMHH 冷漠情绪，中等社交，极控+偏规律
+      // ── M群（情绪中等）────────────────────────────────────────
+      { code: 'SEXY',  vec: [3, 1, 1, 3] }, // MLLM 中情绪，极独立，极随性，中节律（爵士好猫）
+      { code: 'MALO',  vec: [1, 1, 1, 4] }, // LLLH 冷漠孤独随性，极规律（打工猫喽）
+      { code: 'FOOD',  vec: [2, 2, 5, 4] }, // LLHH 偏冷淡，偏独，极控制（食物），偏规律（饭点）
+      { code: 'YOLO',  vec: [3, 3, 1, 1] }, // MMLL 中情绪+中社交，完全随性+极混沌
+      { code: 'GOGO',  vec: [5, 5, 3, 4] }, // HHMH 极外放+极社交，中控，偏规律（跑酷选手）
+      // ── H-D2群（情绪外放）────────────────────────────────────
+      { code: 'WOC',   vec: [4, 3, 2, 1] }, // HMLL 偏外放，中等社交，偏随性，极混沌（随机拆家）
+      { code: 'CRAZ',  vec: [4, 1, 1, 1] }, // HLLL 极外放，极孤独，极随性，极混沌
+      { code: 'FIRE',  vec: [5, 5, 3, 2] }, // HHML 极外放+极社交，中控，偏混沌（随时出现）
+      { code: 'TALK',  vec: [5, 5, 1, 3] }, // HHLM 极外放+极社交，极随性，中节律（话多不强迫）
+      { code: 'HUGS',  vec: [3, 4, 1, 1] }, // MHLL 中情绪，偏社交，极随性，极混沌（粘人挂件）
+      { code: 'SOUL',  vec: [5, 5, 3, 3] }, // HHMM 极外放+极社交，中控，中节律（灵魂床伴）
+    ];
+    // 各类型出现率（基于10万次随机模拟）
+    const RARITY_MAP = {
+      ZZZZ:'13%', YOLO:'11%', SEXY:'10%', BOSS:'7.5%', WOC:'7%',
+      GOGO:'7%',  FIRE:'5.5%', FOOD:'5%', CLEN:'4.5%', SOUL:'4%',
+      MONK:'3.5%', HUGS:'3.5%', OJBK:'3%', TALK:'3%',
+      MALO:'1.5%', CRAZ:'0.6%',
+      BABE:'<2%', MUM:'<2%', LUCK:'<4%', ANCE:'<1%',
+    };
+    // 4维度解读文案
     const DIM_EXPLANATIONS = {
-  "S1": {
-    "L": "对自己下手比别人还狠，夸你两句你都想先验明真伪。",
-    "M": "自信值随天气波动，顺风能飞，逆风先缩。",
-    "H": "心里对自己大致有数，不太会被路人一句话打散。"
-  },
-  "S2": {
-    "L": "内心频道雪花较多，常在「我是谁」里循环缓存。",
-    "M": "平时还能认出自己，偶尔也会被情绪临时换号。",
-    "H": "对自己的脾气、欲望和底线都算门儿清。"
-  },
-  "S3": {
-    "L": "更在意舒服和安全，没必要天天给人生开冲刺模式。",
-    "M": "想上进，也想躺会儿，价值排序经常内部开会。",
-    "H": "很容易被目标、成长或某种重要信念推着往前。"
-  },
-  "E1": {
-    "L": "感情里警报器灵敏，已读不回都能脑补到大结局。",
-    "M": "一半信任，一半试探，感情里常在心里拉锯。",
-    "H": "更愿意相信关系本身，不会被一点风吹草动吓散。"
-  },
-  "E2": {
-    "L": "感情投入偏克制，心门不是没开，是门禁太严。",
-    "M": "会投入，但会给自己留后手，不至于全盘梭哈。",
-    "H": "一旦认定就容易认真，情绪和精力都给得很足。"
-  },
-  "E3": {
-    "L": "容易黏人也容易被黏，关系里的温度感很重要。",
-    "M": "亲密和独立都要一点，属于可调节型依赖。",
-    "H": "空间感很重要，再爱也得留一块属于自己的地。"
-  },
-  "A1": {
-    "L": "看世界自带防御滤镜，先怀疑，再靠近。",
-    "M": "既不天真也不彻底阴谋论，观望是你的本能。",
-    "H": "更愿意相信人性和善意，遇事不急着把世界判死刑。"
-  },
-  "A2": {
-    "L": "规则能绕就绕，舒服和自由往往排在前面。",
-    "M": "该守的时候守，该变通的时候也不死磕。",
-    "H": "秩序感较强，能按流程来就不爱即兴炸场。"
-  },
-  "A3": {
-    "L": "意义感偏低，容易觉得很多事都像在走过场。",
-    "M": "偶尔有目标，偶尔也想摆烂，人生观处于半开机。",
-    "H": "做事更有方向，知道自己大概要往哪边走。"
-  },
-  "Ac1": {
-    "L": "做事先考虑别翻车，避险系统比野心更先启动。",
-    "M": "有时想赢，有时只想别麻烦，动机比较混合。",
-    "H": "更容易被成果、成长和推进感点燃。"
-  },
-  "Ac2": {
-    "L": "做决定前容易多转几圈，脑内会议常常超时。",
-    "M": "会想，但不至于想死机，属于正常犹豫。",
-    "H": "拍板速度快，决定一下就不爱回头磨叽。"
-  },
-  "Ac3": {
-    "L": "执行力和死线有深厚感情，越晚越像要觉醒。",
-    "M": "能做，但状态看时机，偶尔稳偶尔摆。",
-    "H": "推进欲比较强，事情不落地心里都像卡了根刺。"
-  },
-  "So1": {
-    "L": "社交启动慢热，主动出击这事通常得攒半天气。",
-    "M": "有人来就接，没人来也不硬凑，社交弹性一般。",
-    "H": "更愿意主动打开场子，在人群里不太怕露头。"
-  },
-  "So2": {
-    "L": "关系里更想亲近和融合，熟了就容易把人划进内圈。",
-    "M": "既想亲近又想留缝，边界感看对象调节。",
-    "H": "边界感偏强，靠太近会先本能性后退半步。"
-  },
-  "So3": {
-    "L": "表达更直接，心里有啥基本不爱绕。",
-    "M": "会看气氛说话，真实和体面通常各留一点。",
-    "H": "对不同场景的自我切换更熟练，真实感会分层发放。"
-  }
-};
-    const dimensionOrder = ['S1','S2','S3','E1','E2','E3','A1','A2','A3','Ac1','Ac2','Ac3','So1','So2','So3'];
+      "D2": {
+        "L": "情绪压抑型——感受很深，表达很少。你猫不是没感情，是藏得太好了，主人你懂的。",
+        "M": "情绪平衡型——不冷漠也不粘人，该撒娇的时候撒，该消失的时候消失，把握得不错。",
+        "H": "情绪外放型——有喜悦要表现，有不满要声明，不让你猜，直接告诉你。"
+      },
+      "D7": {
+        "L": "独处模式型——社恐猫，陌生人？不存在的。只在安全的地方才肯出现。",
+        "M": "社交弹性型——能独处也能社交，看心情、看对象，不强迫自己。",
+        "H": "主动外向型——哪里有热闹哪里就有它，存在感极强，走到哪里都是焦点。"
+      },
+      "D3": {
+        "L": "随性自由型——没有控制欲，吃什么无所谓，何时玩无所谓，活得很洒脱。",
+        "M": "适度掌控型——有偏好但不强求，原则性和弹性各占一半。",
+        "H": "掌控欲强型——对时间、食物、领地、你的注意力，都有很强的主权意识。"
+      },
+      "D6": {
+        "L": "混沌节律型——时间表是量子态，观测才有结果，你永远猜不到它下一秒想干嘛。",
+        "M": "弹性节律型——大体有规律，但保留随机操作空间，是可预测的混乱。",
+        "H": "规律精准型——作息固定，喂饭不能晚，计划不容改变，改了它会让你知道。"
+      }
+    };
+    const dimensionOrder = ['D2','D7','D3','D6'];
 
     const specialQuestions = [];
     const app = {
@@ -1242,7 +1317,9 @@
 
     function getQuestionMetaLabel(q) {
       if (q.special) return '补充题';
-      return app.previewMode ? dimensionMeta[q.dim].name : '维度已隐藏';
+      if (!app.previewMode) return '维度已隐藏';
+      const dimNames = { D2: 'D2 情绪表达', D7: 'D7 社交模式', D3: 'D3 控制欲', D6: 'D6 节律', D2D7: 'D2+D7 综合', EASTER: '彩蛋题' };
+      return dimNames[q.dim] || q.dim;
     }
 
     function renderQuestions() {
@@ -1259,7 +1336,7 @@
           <div class="question-title">${q.text}</div>
           <div class="options">
             ${q.options.map((opt, i) => {
-              const code = ['A', 'B', 'C', 'D'][i] || String(i + 1);
+              const code = ['A', 'B', 'C', 'D', 'E'][i] || String(i + 1);
               const checked = app.answers[q.id] === opt.value ? 'checked' : '';
               return `
                 <label class="option">
@@ -1296,117 +1373,202 @@
       const complete = done === total && total > 0;
       submitBtn.disabled = !complete;
       testHint.textContent = complete
-        ? '都做完了。现在可以把你的电子魂魄交给结果页审判。'
-        : '全选完才会放行。世界已经够乱了，起码把题做完整。';
+        ? '都做完了。来见证你家猫咪的底色。'
+        : '你的猫等着被定性呢，先把题答完。';
     }
 
-    function sumToLevel(score) {
-      if (score === 1) return 'L';
-      if (score === 2) return 'M';
-      return 'H';
-    }
-
-    function levelNum(level) {
-      return { L: 1, M: 2, H: 3 }[level];
-    }
-
-    function parsePattern(pattern) {
-      return pattern.replace(/-/g, '').split('');
-    }
-
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // 4D 计算引擎
+    // 每题得分1~4直接累积到对应维度
+    // Q15(D2D7)同时计入D2和D7
+    // Q11(EASTER)不计维度分，仅用于ANCE触发条件
+    // 各维度原始分 → 归一化到1~4范围
+    // 欧氏距离最小 → 最近类型
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     function computeResult() {
-      const rawScores = {};
-      const levels = {};
-      Object.keys(dimensionMeta).forEach(dim => { rawScores[dim] = 0; });
+      // 累积每维度原始分
+      const rawSums = { D2: 0, D7: 0, D3: 0, D6: 0 };
+      const rawCounts = { D2: 0, D7: 0, D3: 0, D6: 0 };
 
       questions.forEach(q => {
-        rawScores[q.dim] += Number(app.answers[q.id] || 0);
-      });
-
-      Object.entries(rawScores).forEach(([dim, score]) => {
-        levels[dim] = sumToLevel(score);
-      });
-
-      const userVector = dimensionOrder.map(dim => levelNum(levels[dim]));
-      const ranked = NORMAL_TYPES.map(type => {
-        const vector = parsePattern(type.pattern).map(levelNum);
-        let distance = 0;
-        let exact = 0;
-        for (let i = 0; i < vector.length; i++) {
-          const diff = Math.abs(userVector[i] - vector[i]);
-          distance += diff;
-          if (diff === 0) exact += 1;
+        const val = Number(app.answers[q.id] || 0);
+        if (!val) return;
+        if (q.dim === 'D2D7') {
+          rawSums.D2 += val; rawCounts.D2++;
+          rawSums.D7 += val; rawCounts.D7++;
+        } else if (q.dim === 'EASTER') {
+          // 不计入维度
+        } else {
+          rawSums[q.dim] += val; rawCounts[q.dim]++;
         }
-        const similarity = Math.max(0, Math.round((1 - distance / 30) * 100));
-        return { ...type, ...TYPE_LIBRARY[type.code], distance, exact, similarity };
+      });
+
+      // 各维度归一化到1~4（避免题目数量不同导致偏差）
+      const normScores = {};
+      dimensionOrder.forEach(dim => {
+        const cnt = rawCounts[dim] || 1;
+        normScores[dim] = rawSums[dim] / cnt; // 1.0~4.0 范围
+      });
+
+      // 转换为 L/M/H 显示标签（便于结果页展示）
+      const levels = {};
+      dimensionOrder.forEach(dim => {
+        const v = normScores[dim];
+        levels[dim] = v < 2.5 ? 'L' : v > 3.5 ? 'H' : 'M';
+      });
+
+      // 用户4D向量
+      const userVec = dimensionOrder.map(dim => normScores[dim]);
+
+      // 方向区间分类（1-5分制）：1/2→L，3→M，4/5→H
+      function getZone(s) { return s < 2.5 ? 'L' : s > 3.5 ? 'H' : 'M'; }
+      const userZones = dimensionOrder.map(dim => getZone(normScores[dim]));
+
+      const ZONE_PENALTY = {
+        'LL':0,'MM':0,'HH':0,
+        'LM':1,'ML':1,'HM':1,'MH':1,
+        'LH':2,'HL':2,
+      };
+
+      // 计算与所有主型的欧氏距离 + 区间惩罚（C+D方案，zone从向量动态计算，无硬编码profile）
+      const ranked = NORMAL_TYPES.map(type => {
+        let distSq = 0;
+        let exact = 0;
+        for (let i = 0; i < 4; i++) {
+          const diff = userVec[i] - type.vec[i];
+          distSq += diff * diff;
+          if (getZone(userVec[i]) === getZone(type.vec[i])) exact++;
+        }
+        const distance = Math.sqrt(distSq);
+        const maxDist = Math.sqrt(4 * 16);   // 1-5制，max diff=4
+        const similarity = Math.max(0, Math.round((1 - distance / maxDist) * 100));
+
+        // 区间惩罚：从类型向量实时计算zone，不依赖硬编码profile
+        const typeZones = type.vec.map(v => getZone(v));
+        let penalty = 0;
+        for (let i = 0; i < 4; i++) {
+          const key = userZones[i] + typeZones[i];
+          penalty += ZONE_PENALTY[key] || 0;
+        }
+        const effDist = distance + penalty;
+
+        return { ...type, ...TYPE_LIBRARY[type.code], distance, effDist, exact, similarity };
       }).sort((a, b) => {
-        if (a.distance !== b.distance) return a.distance - b.distance;
+        if (Math.abs(a.effDist - b.effDist) > 0.01) return a.effDist - b.effDist;
         if (b.exact !== a.exact) return b.exact - a.exact;
         return b.similarity - a.similarity;
       });
 
-      const bestNormal = ranked[0];
-      const totalScore = Object.values(rawScores).reduce((a, b) => a + b, 0);
-      const dimScores = Object.values(rawScores);
-      const maxDiff = Math.max(...dimScores) - Math.min(...dimScores);
+      // ━━━ 食物特化修正：Q7选最极端(5) → FOOD 类型额外加权 ━━━
+      const foodScore = Number(app.answers['q7'] || 0) === 5 ? 1 : 0;
+      if (foodScore >= 1) {
+        const foodType = ranked.find(t => t.code === 'FOOD');
+        if (foodType) { foodType.effDist = Math.max(0, foodType.effDist - 2.0); foodType.distance = Math.max(0, foodType.distance - 1.0); }
+        ranked.sort((a, b) => {
+          if (Math.abs(a.effDist - b.effDist) > 0.01) return a.effDist - b.effDist;
+          if (b.exact !== a.exact) return b.exact - a.exact;
+          return b.similarity - a.similarity;
+        });
+      }
 
-      let finalType;
-      let modeKicker = '你的主类型';
-      let badge = `匹配度 ${bestNormal.similarity}% · 精准命中 ${bestNormal.exact}/15 维`;
-      let sub = '维度命中度较高，当前结果可视为你的第一人格画像。';
-      let special = false;
-      let secondaryType = null;
+      // Top-3 加权随机抽取（C方案）：权重 = 1/(effDist+0.1)²，增加结果多样性
+      const top3 = ranked.slice(0, 3);
+      const weights = top3.map(t => 1 / Math.pow(t.effDist + 0.1, 2));
+      const totalW = weights.reduce((a, b) => a + b, 0);
+      let pick = Math.random() * totalW;
+      let bestNormal = top3[0];
+      for (let i = 0; i < top3.length; i++) {
+        pick -= weights[i];
+        if (pick <= 0) { bestNormal = top3[i]; break; }
+      }
 
-      // 隐藏款触发（优先级：SOUL > ANCE > MUM > LUCK）
-      const soulTriggered = maxDiff <= 1 && totalScore >= 9 && Math.random() < 0.17;
-      const anceTriggered = Math.random() < 0.0001;
-      const mumTriggered  = rawScores['So1'] === 3 && rawScores['S3'] === 1 && rawScores['E1'] === 1 && Math.random() < 0.014;
-      const luckTriggered = rawScores['Ac3'] === 3 && rawScores['A3'] === 3 && rawScores['Ac2'] === 3 && Math.random() < 0.027;
+      // ━━━ 隐藏款触发条件（适配1-5分制）━━━
+      const easterVal = Number(app.answers['q11'] || 0);
+      const d3Score = normScores.D3;
+      const d2Score = normScores.D2;
+      const d7Score = normScores.D7;
+      const d6Score = normScores.D6;
 
-      if (soulTriggered) {
-        finalType = TYPE_LIBRARY.SOUL;
-        secondaryType = bestNormal;
-        modeKicker = '终极隐藏款已解锁';
-        badge = '匹配度 0.005% · 灵魂共振确认';
-        sub = '你的四个维度高度均衡，共振产生了极其罕见的灵魂床伴结果。';
-        special = true;
-      } else if (anceTriggered) {
+      const allVals = [d2Score, d7Score, d3Score, d6Score];
+      const mean = allVals.reduce((a, b) => a + b, 0) / 4;
+      const variance = allVals.reduce((a, b) => a + (b - mean) ** 2, 0) / 4;
+
+      // ANCE 小祖宗：彩蛋题选最后一项(5) + D3极高 + D7极高（奉若神明）
+      const anceTriggered = easterVal === 5 && d3Score >= 3.5 && d7Score >= 3.0;
+
+      // BABE 恋爱脑：情绪+社交+控制全拉满，全情投入型，隐藏款
+      const babeTriggered = d2Score >= 3.5 && d7Score >= 3.5 && d3Score >= 3.5 && Math.random() < 0.40;
+
+      // MUM 妈猫：安静照顾型 = 情绪非极端 + 高粘人 + 高照料控制 + 高规律
+      // 验证：GOGO[5,5,3,4] d2=5≥3.5 → 不触发 ✅  SOUL[5,5,5,3] d2=5≥3.5 → 不触发 ✅
+      const mumTriggered = d2Score < 3.5 && d7Score >= 3.5 && d3Score >= 3.5 && d6Score >= 3.0 && Math.random() < 0.75;
+
+      // LUCK 招财猫：乐观外放 + 完全随性 + 极规律 = 有福气的生命
+      const luckTriggered = d2Score >= 2.5 && d3Score < 2.5 && d6Score >= 3.5 && Math.random() < 0.60;
+
+      let finalType, modeKicker, badge, sub, special = false, secondaryType = null;
+
+      // 优先级：ANCE > BABE > MUM > LUCK
+      if (anceTriggered) {
         finalType = TYPE_LIBRARY.ANCE;
         secondaryType = bestNormal;
         modeKicker = '传说隐藏款已解锁';
-        badge = '匹配度 0.01% · 祖宗级认证';
-        sub = '你的猫已经不是猫了，是你供奉的小祖宗。';
+        badge = ['触发率 0.3%', '小祖宗认证', '极度稀缺猫饼'];
+        sub = '手机完全献给猫 + 控制欲拉满。你不是在养猫，你在供奉一位降临凡间的存在。';
+        special = true;
+      } else if (babeTriggered) {
+        finalType = TYPE_LIBRARY.BABE;
+        secondaryType = bestNormal;
+        modeKicker = '史诗隐藏款已解锁';
+        badge = ['触发率 <2%', '恋爱脑认证', '极度稀缺猫饼'];
+        sub = '情绪、依恋、控制欲三项全拉满。爱了就是爱了，不需要理由。';
         special = true;
       } else if (mumTriggered) {
         finalType = TYPE_LIBRARY.MUM;
         secondaryType = bestNormal;
         modeKicker = '史诗隐藏款已解锁';
-        badge = '匹配度 0.05% · 猫妈妈认证';
+        badge = ['触发率 <2%', '猫妈妈认证', '极度稀缺猫饼'];
         sub = '你遇到了一只把你当孩子养的猫妈妈。';
         special = true;
       } else if (luckTriggered) {
         finalType = TYPE_LIBRARY.LUCK;
         secondaryType = bestNormal;
         modeKicker = '稀有隐藏款已解锁';
-        badge = '匹配度 0.1% · 招财认证';
+        badge = ['触发率 <4%', '招财认证', '极度稀缺猫饼'];
         sub = '招财猫降临，好运即将挡不住。';
         special = true;
       } else {
         finalType = bestNormal;
+        modeKicker = '你的主猫格';
+        const matchLabel = ['', '基础匹配', '部分吻合', '强力匹配', '高度契合'][bestNormal.exact] || '';
+        badge = matchLabel
+          ? [`猫饼匹配度 ${bestNormal.similarity}%`, matchLabel]
+          : [`猫饼匹配度 ${bestNormal.similarity}%`];
+        sub = '以下是你的猫格解读，也是一面镜子。';
       }
 
-      return { rawScores, levels, ranked, bestNormal, finalType, modeKicker, badge, sub, special, secondaryType };
+      const rarity = RARITY_MAP[finalType.code] || '';
+      return { rawScores: rawSums, normScores, levels, ranked, bestNormal, finalType, modeKicker, badge, sub, special, secondaryType, rarity };
     }
     function renderDimList(result) {
       const dimList = document.getElementById('dimList');
+      const dimLabels = { D2: '情绪表达', D7: '社交模式', D3: '控制欲', D6: '节律' };
+      const dimAxis = {
+        D2: { L: 'S 压抑冷漠', M: '情绪平衡', H: 'E 外放热情' },
+        D7: { L: 'I 回避独处', M: '社交弹性', H: 'O 主动外向' },
+        D3: { L: 'F 随性自由', M: '适度掌控', H: 'C 掌控秩序' },
+        D6: { L: 'X 混沌随性', M: '弹性节律', H: 'R 规律精准' }
+      };
       dimList.innerHTML = dimensionOrder.map(dim => {
         const level = result.levels[dim];
+        const score = result.normScores[dim].toFixed(1);
         const explanation = DIM_EXPLANATIONS[dim][level];
+        const axis = dimAxis[dim];
         return `
           <div class="dim-item">
             <div class="dim-item-top">
-              <div class="dim-item-name">${dimensionMeta[dim].name}</div>
-              <div class="dim-item-score">${level} / ${result.rawScores[dim]}分</div>
+              <div class="dim-item-name">${dimLabels[dim]}</div>
+              <div class="dim-item-score">${axis[level]} · ${score}分</div>
             </div>
             <p>${explanation}</p>
           </div>
@@ -1420,13 +1582,16 @@
 
       document.getElementById('resultModeKicker').textContent = result.modeKicker;
       document.getElementById('resultTypeName').textContent = `${type.code}（${type.cn}）`;
-      document.getElementById('matchBadge').textContent = result.badge;
+      const badgesEl = document.getElementById('matchBadges');
+      const badgeList = Array.isArray(result.badge) ? result.badge : [result.badge];
+      badgesEl.innerHTML = badgeList.map(b => `<div class="match" style="margin-top:0;">${b}</div>`).join('');
       document.getElementById('resultTypeSub').textContent = result.sub;
-      document.getElementById('resultDesc').innerHTML = type.desc.replace(/\n/g, '<br>');
+      document.getElementById('resultTypeLabel').textContent = `${type.code}（${type.cn}）`;
+      document.getElementById('resultDesc').innerHTML = '<p>' + type.desc.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>') + '</p>';
       document.getElementById('posterCaption').textContent = type.intro;
       document.getElementById('funNote').textContent = result.special
-        ? '本测试仅供娱乐。你触发了隐藏款——这属于作者故意埋的彩蛋，请勿把它当成医学、心理学、相学、命理学或灵异学依据。'
-        : '本测试仅供娱乐，别拿它当诊断、面试、相亲、分手、招魂、算命或人生判决书。你可以笑，但别太当真。';
+        ? '你的猫从来不在意自己触发了什么隐藏款，它只在意你几点开罐头。本测试娱乐向，结果请轻拿轻放，不必对号入座太用力。'
+        : '你的猫从来不在意自己是什么类型，它只在意你几点开罐头。本测试娱乐向，结果请轻拿轻放，不必对号入座太用力。';
 
       const posterBox = document.getElementById('posterBox');
       const posterImage = document.getElementById('posterImage');
@@ -1442,6 +1607,24 @@
       }
 
       renderDimList(result);
+
+      // ━━━ 第二猫格：非隐藏款时展示副型 ━━━
+      const secondBox = document.getElementById('secondTypeBox');
+      if (!result.special && result.ranked.length >= 2) {
+        const second = result.ranked[1];
+        const secondLib = TYPE_LIBRARY[second.code];
+        if (secondBox && secondLib) {
+          secondBox.innerHTML = `
+            <div class="second-type-label">你是否也有 <strong>${second.code}（${secondLib.cn}）</strong> 的一面？</div>
+            <div class="second-type-meta">预测匹配度 ${second.similarity}%</div>
+            <p class="second-type-intro">${secondLib.intro}</p>
+          `;
+          secondBox.style.display = 'block';
+        }
+      } else if (secondBox) {
+        secondBox.style.display = 'none';
+      }
+
       showScreen('result');
     }
 
@@ -1460,10 +1643,95 @@
     }
 
     document.getElementById('startBtn').addEventListener('click', () => startTest(false));
-    document.getElementById('backIntroBtn').addEventListener('click', () => showScreen('intro'));
     document.getElementById('submitBtn').addEventListener('click', renderResult);
     document.getElementById('restartBtn').addEventListener('click', () => startTest(false));
     document.getElementById('toTopBtn').addEventListener('click', () => showScreen('intro'));
+
+    (function checkPreview() {
+      const code = new URLSearchParams(location.search).get('preview');
+      if (!code) return;
+      const type = TYPE_LIBRARY[code.toUpperCase()];
+      if (!type) return;
+
+      // 隐藏款：构造能确定性触发的答题
+      const hiddenAnswers = {
+        ANCE: {q1:5,q2:5,q3:5,q4:5,q5:5,q6:5,q7:5,q8:5,q9:5,q10:5,q11:5,q12:5,q13:5,q14:5,q15:5},
+        BABE: {q1:5,q2:5,q3:5,q4:5,q5:5,q6:5,q7:5,q8:4,q9:5,q10:5,q11:1,q12:4,q13:4,q14:4,q15:5},
+        MUM:  {q1:5,q2:2,q3:5,q4:2,q5:5,q6:2,q7:5,q8:5,q9:5,q10:5,q11:1,q12:5,q13:5,q14:5,q15:4},
+        LUCK: {q1:3,q2:3,q3:1,q4:3,q5:3,q6:3,q7:1,q8:5,q9:1,q10:3,q11:1,q12:5,q13:5,q14:5,q15:3},
+      };
+
+      if (hiddenAnswers[code.toUpperCase()]) {
+        app.answers = hiddenAnswers[code.toUpperCase()];
+        // 强制 random < 0.1 确保隐藏款触发
+        const origRandom = Math.random;
+        Math.random = () => 0.05;
+        renderResult();
+        Math.random = origRandom;
+        return;
+      }
+
+      // 常规款：完美向量构造答题
+      const vec = (window.NORMAL_TYPES || []).find(t => t.code === code.toUpperCase());
+      if (vec) {
+        const dims = ['D2','D7','D3','D6'];
+        const qs = [
+          {id:'q2',dim:'D2'},{id:'q4',dim:'D2'},{id:'q6',dim:'D2'},
+          {id:'q1',dim:'D7'},{id:'q5',dim:'D7'},{id:'q10',dim:'D7'},
+          {id:'q3',dim:'D3'},{id:'q7',dim:'D3'},{id:'q9',dim:'D3'},
+          {id:'q8',dim:'D6'},{id:'q12',dim:'D6'},{id:'q13',dim:'D6'},{id:'q14',dim:'D6'},
+          {id:'q15',dim:'D2D7'},{id:'q11',dim:'EASTER'},
+        ];
+        qs.forEach(q => {
+          if (q.dim === 'EASTER') { app.answers[q.id] = 1; return; }
+          if (q.dim === 'D2D7') { app.answers[q.id] = Math.round((vec.vec[0]+vec.vec[1])/2); return; }
+          const i = dims.indexOf(q.dim);
+          app.answers[q.id] = Math.max(1, Math.min(5, Math.round(vec.vec[i])));
+        });
+        if (code.toUpperCase() !== 'FOOD' && app.answers['q7'] === 5) app.answers['q7'] = 4;
+      }
+      renderResult();
+    })();
+
+    (function initWordCloud() {
+      const container = document.getElementById('wordcloud');
+      if (!container) return;
+      const isMobile = window.innerWidth < 600;
+      const scale = isMobile ? 0.58 : 1;
+      const words = ['MONK','FIRE','SOUL','FOOD','CRAZ','BOSS','DEAD','BABE','ANCE','YOLO','ZZZZ','SEXY','TALK','HUGS','LUCK','RULE','WOC','FOOL','SEXY'];
+      const sizes = [28,26,24,25,23,22,20,24,19,22,26,20,22,21,24,21,23,20,22];
+      const opacs = [.20,.22,.18,.20,.19,.18,.16,.20,.16,.18,.21,.16,.18,.18,.19,.17,.19,.16,.18];
+      const mobileAnchors = [
+        [15,8],[42,6],[62,6],[85,8],
+        [15,88],[42,92],[62,92],[85,88],
+        [7,32],[7,66],[93,32],[93,66],
+      ];
+      const desktopAnchors = [
+        [12,8],[30,6],[50,5],[70,6],[88,9],
+        [12,89],[30,92],[50,93],[70,92],[88,89],
+        [7,22],[7,40],[7,58],[7,76],
+        [93,22],[93,40],[93,58],[93,76],
+        [20,16],[80,16],[20,83],[80,83],
+      ];
+      const anchors = isMobile ? mobileAnchors : desktopAnchors;
+      const pool = [...words.keys()].sort(() => Math.random() - 0.5);
+      anchors.forEach((anchor, i) => {
+        const idx = pool[i % pool.length];
+        const sz = Math.round(sizes[idx] * scale);
+        const op = opacs[idx];
+        const dur = (7 + Math.random() * 5).toFixed(2);
+        const del = (-(Math.random() * parseFloat(dur))).toFixed(2);
+        const kf = `wc${i}`;
+        const kfEl = document.createElement('style');
+        kfEl.textContent = `@keyframes ${kf}{0%{opacity:0;transform:translate(-50%,-50%) scale(.9)}20%{opacity:${op};transform:translate(-50%,-50%) scale(1)}80%{opacity:${op};transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(.9)}}`;
+        document.head.appendChild(kfEl);
+        const el = document.createElement('span');
+        el.className = 'wc-word';
+        el.textContent = words[idx];
+        el.style.cssText = `left:${anchor[0]}%;top:${anchor[1]}%;font-size:${sz}px;opacity:0;animation:${kf} ${dur}s ease-in-out ${del}s infinite both;`;
+        container.appendChild(el);
+      });
+    })();
   </script>
 
 </body>
