@@ -1,7 +1,23 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(curl -sI https://sbti.unun.dev/)",
+      "Bash(nslookup -type=cname sbti.unun.dev)",
+      "Bash(nslookup -type=txt sbti.unun.dev)",
+      "Bash(curl -s \"https://cf.banner.cfd/cdn-cgi/trace\")",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "Bash(nslookup:*)",
+      "Bash(curl -sI --max-time 5 \"https://cat-bti.xyongxin.workers.dev/\")",
+      "Bash(python:*)",
+      "Bash(node:*)",
+      "Bash(ls D:/projects/cat-bti/*.js)",
+      "Bash(pip install:*)",
+      "Bash(pip show:*)",
+      "Bash(scoop --version)",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "mcp__plugin_playwright_playwright__browser_console_messages"
     ]
   }
 }

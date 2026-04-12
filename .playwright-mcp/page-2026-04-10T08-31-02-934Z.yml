@@ -1,0 +1,504 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - link "跳到主要内容" [ref=e2] [cursor=pointer]
+      - link "无障碍功能帮助" [ref=e3] [cursor=pointer]:
+        - /url: https://support.google.com/websearch/answer/181196?hl=zh-CN
+      - link "无障碍功能反馈" [ref=e4] [cursor=pointer]
+  - generic [ref=e9]:
+    - search [ref=e10]:
+      - generic [ref=e13]:
+        - link "前往 Google 首页" [ref=e14] [cursor=pointer]:
+          - /url: https://www.google.com/webhp?hl=zh-CN&ictx=0&sa=X&ved=0ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQpYkNCAs
+          - img "前往 Google 首页" [ref=e15]
+        - generic [ref=e20]:
+          - combobox "搜索" [ref=e23]: DNSPod CNAME Cloudflare Pages 问题 DNSPod CNAME Cloudflare Pages 问题
+          - generic [ref=e24]:
+            - button "清除" [ref=e26] [cursor=pointer]:
+              - img [ref=e28]
+            - generic [ref=e31]:
+              - button "按语音搜索" [ref=e32] [cursor=pointer]:
+                - img [ref=e33]
+              - button "按图搜索" [ref=e35] [cursor=pointer]:
+                - img [ref=e36]
+        - button "搜索" [ref=e38] [cursor=pointer]:
+          - img [ref=e41]
+    - generic [ref=e43]:
+      - button "设置" [ref=e45] [cursor=pointer]:
+        - img [ref=e48]
+      - generic [ref=e51]:
+        - button "Google 应用" [ref=e53] [cursor=pointer]:
+          - img [ref=e54]
+        - link "登录" [ref=e58] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?hl=zh-CN&passive=true&continue=https://www.google.com/search%3Fq%3DDNSPod%2BCNAME%2BCloudflare%2BPages%2B%25E9%2597%25AE%25E9%25A2%2598%26sei%3DRLXYad_PJtnAkPIPuMny4AQ&ec=futura_srp_og_si_72236_p
+  - generic [ref=e60]:
+    - navigation [ref=e66]:
+      - generic [ref=e70]:
+        - list [ref=e71]:
+          - listitem [ref=e72]:
+            - link "AI 模式" [ref=e75] [cursor=pointer]:
+              - /url: /search?q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&sca_esv=6e9105e3f9215b89&udm=50&fbs=ADc_l-Z6XGGbkKmpylZqg2J7ZOuVmuVjtSOGTq3fLDGUek6XGDjnqv49AtWyzIOogHWMlgf9IS-wJ1cAUNzKcIonLYL1IIn65h5ElQqDUTQ4mtK5Cbn5e-uPR58dKCqBUL4E0lfdNL4IBt7tGFuSVqsT2WY9Y2cslEFa-aDNN93VXrSACjObhaXynfdJ8ryd6n6JyaMn2uuOdRDPcyrh9Ej-1CJcEdLueQ&aep=1&ntc=1&sa=X&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQ2J8OegQIEhAE
+              - generic [ref=e78]: AI 模式
+          - listitem [ref=e79]:
+            - link "全部" [disabled] [ref=e80]:
+              - generic [ref=e82]: 全部
+          - listitem [ref=e83]:
+            - link "视频" [ref=e84] [cursor=pointer]:
+              - /url: /search?sca_esv=6e9105e3f9215b89&udm=7&fbs=ADc_l-Z6XGGbkKmpylZqg2J7ZOuVmuVjtSOGTq3fLDGUek6XGDjnqv49AtWyzIOogHWMlgf9IS-wJ1cAUNzKcIonLYL1IIn65h5ElQqDUTQ4mtK5Cbn5e-uPR58dKCqBUL4E0lfdNL4IBt7tGFuSVqsT2WY9Y2cslEFa-aDNN93VXrSACjObhaXynfdJ8ryd6n6JyaMn2uuOdRDPcyrh9Ej-1CJcEdLueQ&q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&sa=X&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQtKgLegQIFBAB
+              - generic [ref=e86]: 视频
+          - listitem [ref=e87]:
+            - link "购物" [ref=e88] [cursor=pointer]:
+              - /url: /search?sca_esv=6e9105e3f9215b89&udm=28&fbs=ADc_l-Z6XGGbkKmpylZqg2J7ZOuVmuVjtSOGTq3fLDGUek6XGDjnqv49AtWyzIOogHWMlgf9IS-wJ1cAUNzKcIonLYL1IIn65h5ElQqDUTQ4mtK5Cbn5e-uPR58dKCqBUL4E0lfdNL4IBt7tGFuSVqsT2WY9Y2cslEFa-aDNN93VXrSACjObhaXynfdJ8ryd6n6JyaMn2uuOdRDPcyrh9Ej-1CJcEdLueQ&q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&ved=1t:220175&ictx=111
+              - generic [ref=e90]: 购物
+          - listitem [ref=e91]:
+            - link "图片" [ref=e92] [cursor=pointer]:
+              - /url: /search?sca_esv=6e9105e3f9215b89&udm=2&fbs=ADc_l-Z6XGGbkKmpylZqg2J7ZOuVmuVjtSOGTq3fLDGUek6XGDjnqv49AtWyzIOogHWMlgf9IS-wJ1cAUNzKcIonLYL1IIn65h5ElQqDUTQ4mtK5Cbn5e-uPR58dKCqBUL4E0lfdNL4IBt7tGFuSVqsT2WY9Y2cslEFa-aDNN93VXrSACjObhaXynfdJ8ryd6n6JyaMn2uuOdRDPcyrh9Ej-1CJcEdLueQ&q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&sa=X&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQtKgLegQIFxAB
+              - generic [ref=e94]: 图片
+          - listitem [ref=e95]:
+            - link "短视频" [ref=e96] [cursor=pointer]:
+              - /url: /search?sca_esv=6e9105e3f9215b89&udm=39&fbs=ADc_l-Z6XGGbkKmpylZqg2J7ZOuVmuVjtSOGTq3fLDGUek6XGDjnqv49AtWyzIOogHWMlgf9IS-wJ1cAUNzKcIonLYL1IIn65h5ElQqDUTQ4mtK5Cbn5e-uPR58dKCqBUL4E0lfdNL4IBt7tGFuSVqsT2WY9Y2cslEFa-aDNN93VXrSACjObhaXynfdJ8ryd6n6JyaMn2uuOdRDPcyrh9Ej-1CJcEdLueQ&q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&sa=X&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQs6gLegQIGBAB
+              - generic [ref=e98]: 短视频
+          - listitem [ref=e99]:
+            - link "新闻" [ref=e100] [cursor=pointer]:
+              - /url: /search?sca_esv=6e9105e3f9215b89&q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&tbm=nws&source=lnms&fbs=ADc_l-Z6XGGbkKmpylZqg2J7ZOuVmuVjtSOGTq3fLDGUek6XGDjnqv49AtWyzIOogHWMlgf9IS-wJ1cAUNzKcIonLYL1IIn65h5ElQqDUTQ4mtK5Cbn5e-uPR58dKCqBUL4E0lfdNL4IBt7tGFuSVqsT2WY9Y2cslEFa-aDNN93VXrSACjObhaXynfdJ8ryd6n6JyaMn2uuOdRDPcyrh9Ej-1CJcEdLueQ&sa=X&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQ0pQJegQIFRAB
+              - generic [ref=e102]: 新闻
+          - listitem [ref=e103]:
+            - button "更多过滤条件" [ref=e104] [cursor=pointer]:
+              - generic "更多过滤条件" [ref=e105]:
+                - generic [ref=e106]:
+                  - generic [ref=e107]: 更多
+                  - img [ref=e109]
+        - button "工具" [ref=e112] [cursor=pointer]:
+          - generic [ref=e114]:
+            - generic [ref=e115]: 工具
+            - img [ref=e117]
+    - heading "搜索结果" [level=1] [ref=e119]
+    - generic [ref=e124]:
+      - generic [ref=e143]:
+        - generic [ref=e148]:
+          - generic [ref=e150]:
+            - generic [ref=e151]:
+              - img [ref=e152]
+              - heading "AI 概览" [level=2] [ref=e154]
+            - button "关于这条结果的详细信息" [ref=e158]:
+              - img [ref=e160]
+          - generic [ref=e181]:
+            - generic [ref=e184]:
+              - generic [ref=e185]:
+                - text: DNSPod配置Cloudflare Pages的CNAME问题，
+                - mark [ref=e186]: 通常涉及域名解析生效延迟、记录冲突或SSL配置
+                - text: 。在DNSPod设置CNAME指向
+                - code [ref=e187]: xxx.pages.dev
+                - text: 后，应确保Cloudflare页面自定义域名已绑定并SSL认证。若不生效，需检查记录冲突、记录类型（CNAME不能与MX等共存）以及等待DNS TTL刷新。
+                - button "Reddit（+2 个）- 查看相关链接" [ref=e190] [cursor=pointer]:
+                  - generic [ref=e191]:
+                    - img "Reddit" [ref=e192]
+                    - generic [ref=e193]:
+                      - generic [ref=e194]: Reddit
+                      - generic [ref=e195]: "+2"
+              - heading "常见问题与解决步骤" [level=3] [ref=e196]
+              - list [ref=e197]:
+                - listitem [ref=e198]:
+                  - strong [ref=e200]: 解析生效延迟（最常见）
+                  - list [ref=e201]:
+                    - listitem [ref=e202]:
+                      - generic [ref=e203]:
+                        - strong [ref=e204]: 问题
+                        - text: ：DNSPod修改记录后，全球解析未更新。
+                    - listitem [ref=e205]:
+                      - generic [ref=e206]:
+                        - strong [ref=e207]: 解决
+                        - text: ：等待10分钟至24小时，或使用
+                        - code [ref=e208]: nslookup
+                        - text: 检查解析结果。
+                - listitem [ref=e209]:
+                  - strong [ref=e211]: CNAME冲突
+                  - list [ref=e212]:
+                    - listitem [ref=e213]:
+                      - generic [ref=e214]:
+                        - strong [ref=e215]: 问题
+                        - text: ：DNSPod提示主机名冲突，或根域名(
+                        - code [ref=e216]: "@"
+                        - text: )设置了其他记录（如A记录、MX记录）导致无法配置CNAME。
+                    - listitem [ref=e217]:
+                      - generic [ref=e218]:
+                        - strong [ref=e219]: 解决
+                        - text: ：删除冲突的A记录、AAAA记录或MX记录。
+                    - listitem [ref=e220]:
+                      - generic [ref=e221]:
+                        - strong [ref=e222]: 方案
+                        - text: ：若必须使用根域名，且存在记录冲突，可使用Cloudflare的
+                        - link [ref=e224] [cursor=pointer]:
+                          - /url: https://deeprouter.org/article/cloudflare-saas-worker-custom-domain-pages-proxy-guide
+                          - text: SaaS模式
+                        - text: 进行回源。
+                - listitem [ref=e225]:
+                  - strong [ref=e227]: Cloudflare Pages SSL/TLS 配置错误
+                  - list [ref=e228]:
+                    - listitem [ref=e229]:
+                      - generic [ref=e230]:
+                        - strong [ref=e231]: 问题
+                        - text: ：CNAME解析正确，但浏览器报错522、524或证书错误。
+                    - listitem [ref=e232]:
+                      - generic [ref=e233]:
+                        - strong [ref=e234]: 解决
+                        - text: ：确保Cloudflare Pages中已正确添加自定义域名，并完成了SSL证书的自动签署。
+                - listitem [ref=e235]:
+                  - strong [ref=e237]: 域名未在Cloudflare验证
+                  - list [ref=e238]:
+                    - listitem [ref=e239]:
+                      - generic [ref=e240]:
+                        - strong [ref=e241]: 问题
+                        - text: ：CNAME指向正确，但Cloudflare不知道该域名映射到哪个Pages项目。
+                    - listitem [ref=e242]:
+                      - generic [ref=e243]:
+                        - strong [ref=e244]: 解决
+                        - text: ：确保在Cloudflare Pages项目 -> Settings -> Custom Domains 中添加该域名。
+                      - button [ref=e247] [cursor=pointer]:
+                        - generic [ref=e248]:
+                          - img [ref=e249]
+                          - generic [ref=e250]:
+                            - generic [ref=e251]: Reddit
+                            - generic [ref=e252]: "+2"
+              - heading [level=3] [ref=e253]: 推荐配置流程
+              - list [ref=e254]:
+                - listitem [ref=e255]:
+                  - generic [ref=e256]:
+                    - text: 在
+                    - strong [ref=e257]: DNSPod
+                    - text: 中添加CNAME记录：主机记录为
+                    - code [ref=e258]: www
+                    - text: (或你的子域)，记录类型为
+                    - code [ref=e259]: CNAME
+                    - text: ，记录值为
+                    - code [ref=e260]: 你的项目名.pages.dev
+                    - text: 。
+                - listitem [ref=e261]:
+                  - generic [ref=e262]:
+                    - text: 在
+                    - strong [ref=e263]: Cloudflare Pages
+                    - text: 中，在项目的
+                    - code [ref=e264]: Custom Domains
+                    - text: 选项中添加该子域名。
+                - listitem [ref=e265]:
+                  - generic [ref=e266]: 等待证书生成（通常需要几分钟到几小时）。
+              - generic [ref=e267]:
+                - text: 如果使用
+                - strong [ref=e268]: DNSPod+Cloudflare
+                - text: 的模式，请确保DNSPod指向正确。如果是使用Cloudflare解析，直接添加CNAME并开启代理（黄色云朵）即可。
+                - button [ref=e271] [cursor=pointer]:
+                  - generic [ref=e272]:
+                    - img [ref=e273]
+                    - generic [ref=e275]: 知乎专栏
+            - generic [ref=e282]:
+              - list [ref=e284]:
+                - listitem [ref=e285]:
+                  - generic [ref=e286]:
+                    - link "DNS CNAME指向www到root在CloudFlare托管的页面上失败 .... 在新标签页中打开。" [ref=e287] [cursor=pointer]:
+                      - /url: https://www.reddit.com/r/CloudFlare/comments/1cykmmp/dns_cname_pointing_www_to_root_fails_error_522/?tl=zh-hans
+                    - generic [ref=e289]:
+                      - generic [ref=e290]: DNS CNAME指向www到root在CloudFlare托管的页面上失败 ...
+                      - generic [ref=e291]: 2024年5月23日 — 感谢提供反馈！ 请详细说明为什么此内容没有帮助。
+                      - generic [ref=e292]:
+                        - generic [ref=e297]: Reddit
+                        - button "关于这条结果" [ref=e299] [cursor=pointer]:
+                          - img [ref=e300]
+                - listitem [ref=e304]:
+                  - generic [ref=e305]:
+                    - link "为什么我的子域名的CNAME 记录无法传播到Cloudflare？. 在新标签页中打开。" [ref=e306] [cursor=pointer]:
+                      - /url: https://support.zendesk.com/hc/zh-cn/articles/4408887013146-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E7%9A%84%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9A%84-CNAME-%E8%AE%B0%E5%BD%95%E6%97%A0%E6%B3%95%E4%BC%A0%E6%92%AD%E5%88%B0-Cloudflare
+                    - generic [ref=e308]:
+                      - generic [ref=e309]: 为什么我的子域名的CNAME 记录无法传播到Cloudflare？
+                      - generic [ref=e310]: 2025年8月5日 — 为什么我的子域名的CNAME 记录无法传播到Cloudflare？
+                      - generic [ref=e311]:
+                        - generic [ref=e316]: Zendesk help
+                        - button [ref=e318] [cursor=pointer]:
+                          - img [ref=e319]
+                - listitem [ref=e323]:
+                  - generic [ref=e324]:
+                    - link [ref=e325] [cursor=pointer]:
+                      - /url: https://www.alexwei.top/2022/02/19/dnspod-trans-to-cloudflare/#:~:text=%E9%A2%84%E8%A7%88:%20*%20%E6%8C%89%E6%AD%A3%E5%BA%8F%20*%20%E6%8C%89%E5%80%92%E5%BA%8F%20*%20%E6%8C%89%E7%83%AD%E5%BA%A6
+                    - generic [ref=e327]:
+                      - generic [ref=e328]: DnsPod转Cloudflare记 - AlexWei的部落阁
+                      - generic [ref=e329]: "2022年2月19日 — 预览: * 按正序 * 按倒序 * 按热度"
+                      - generic [ref=e330]:
+                        - generic [ref=e335]: www.alexwei.top
+                        - button [ref=e337] [cursor=pointer]:
+                          - img [ref=e338]
+              - button [ref=e343] [cursor=pointer]:
+                - generic [ref=e344]: 全部显示
+        - button "显示更多 AI 概览" [ref=e348]:
+          - generic [ref=e350] [cursor=pointer]:
+            - generic [ref=e351]: 展开
+            - img [ref=e353]
+      - main [ref=e356]:
+        - generic [ref=e360]:
+          - generic [ref=e363]:
+            - heading "网页搜索结果" [level=2] [ref=e364]
+            - generic [ref=e365]:
+              - generic [ref=e368]:
+                - link "DNS CNAME指向www到root在CloudFlare托管的页面上 ... Reddit · r/CloudFlare 5条评论 · 1年前" [ref=e370] [cursor=pointer]:
+                  - /url: https://www.reddit.com/r/CloudFlare/comments/1cykmmp/dns_cname_pointing_www_to_root_fails_error_522/?tl=zh-hans
+                  - heading "DNS CNAME指向www到root在CloudFlare托管的页面上 ..." [level=3] [ref=e371]
+                  - generic [ref=e376]:
+                    - generic [ref=e378]: Reddit · r/CloudFlare
+                    - generic [ref=e380]: 5条评论 · 1年前
+                - button "关于这条结果的详细信息" [ref=e381] [cursor=pointer]:
+                  - img [ref=e384]
+              - generic [ref=e388]:
+                - text: 但是，当我尝试使用
+                - emphasis [ref=e389]: CNAME
+                - text: 记录（
+                - emphasis [ref=e390]: CNAME
+                - text: ，www，root.com）时，www.root.com会失败，出现522错误。 如果我在我的
+                - emphasis [ref=e391]: CloudFlare
+                - text: 页面上添加www.root.com 作为自定义域名， ...
+          - generic [ref=e395]:
+            - generic [ref=e398]:
+              - link "记录一些使用CloudFlare CNAME 优选加速碰到的问题 tama.guru https://blog.tama.guru › record › cloudflare-cname-issus" [ref=e400] [cursor=pointer]:
+                - /url: https://blog.tama.guru/record/cloudflare-cname-issus.html
+                - heading "记录一些使用CloudFlare CNAME 优选加速碰到的问题" [level=3] [ref=e401]
+                - generic [ref=e406]:
+                  - generic [ref=e408]: tama.guru
+                  - generic [ref=e410]: https://blog.tama.guru › record › cloudflare-cname-issus
+              - button "关于这条结果的详细信息" [ref=e411] [cursor=pointer]:
+                - img [ref=e414]
+            - generic [ref=e417]:
+              - generic [ref=e418]: 2025年11月21日 —
+              - generic [ref=e419]:
+                - text: A：到
+                - emphasis [ref=e420]: DNSPOD
+                - text: 检查一下是否有增加目标域名解析，比如自定义主机名设置了 share.tama.guru -> share.337845818.best ，则在
+                - emphasis [ref=e421]: DNSPOD
+                - text: 添加名为 share 指向 share.
+          - generic [ref=e425]:
+            - generic [ref=e428]:
+              - link "DnsPod转Cloudflare记 - AlexWei的部落阁 alexwei.top https://www.alexwei.top › 2022/02/19 › dnspod-trans-to-..." [ref=e430] [cursor=pointer]:
+                - /url: https://www.alexwei.top/2022/02/19/dnspod-trans-to-cloudflare/
+                - heading "DnsPod转Cloudflare记 - AlexWei的部落阁" [level=3] [ref=e431]
+                - generic [ref=e436]:
+                  - generic [ref=e438]: alexwei.top
+                  - generic [ref=e440]: https://www.alexwei.top › 2022/02/19 › dnspod-trans-to-...
+              - button "关于这条结果的详细信息" [ref=e441] [cursor=pointer]:
+                - img [ref=e444]
+            - generic [ref=e447]:
+              - generic [ref=e448]: 2022年2月19日 —
+              - generic [ref=e449]:
+                - text: 在
+                - emphasis [ref=e450]: CloudFlare
+                - text: ，我们决定让我们的用户在根目录中包含
+                - emphasis [ref=e451]: CNAME
+                - text: ，即使我们知道它违反了
+                - emphasis [ref=e452]: DNS
+                - text: 规范。这在大多数情况下都奏效了。不幸的是，有一些边缘情况会导致各种 ...
+          - generic [ref=e456]:
+            - generic [ref=e459]:
+              - link "为什么我的子域名的CNAME 记录无法传播到Cloudflare？ Zendesk help https://support.zendesk.com › zh-cn › articles › 440888..." [ref=e461] [cursor=pointer]:
+                - /url: https://support.zendesk.com/hc/zh-cn/articles/4408887013146-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E7%9A%84%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9A%84-CNAME-%E8%AE%B0%E5%BD%95%E6%97%A0%E6%B3%95%E4%BC%A0%E6%92%AD%E5%88%B0-Cloudflare
+                - heading "为什么我的子域名的CNAME 记录无法传播到Cloudflare？" [level=3] [ref=e462]
+                - generic [ref=e467]:
+                  - generic [ref=e469]: Zendesk help
+                  - generic [ref=e471]: https://support.zendesk.com › zh-cn › articles › 440888...
+              - button "关于这条结果的详细信息" [ref=e472] [cursor=pointer]:
+                - img [ref=e475]
+            - generic [ref=e478]:
+              - generic [ref=e479]: 2025年8月5日 —
+              - generic [ref=e480]:
+                - text: 这通常是由于
+                - emphasis [ref=e481]: CNAME
+                - text: 状态被设置为默认的橙色云图标所致。将其切换到灰色云选项应该可以解决此
+                - emphasis [ref=e482]: 问题
+                - text: 。 屏幕截图中的橙色云朵图标是
+                - emphasis [ref=e483]: Cloudflare
+                - text: 的默认设置：.
+          - generic [ref=e487]:
+            - generic [ref=e490]:
+              - link "Cloudflare SaaS回源+ Worker实现国内域名访问Pages完整指南 deeprouter.org https://deeprouter.org › article › cloudflare-saas-worker..." [ref=e492] [cursor=pointer]:
+                - /url: https://deeprouter.org/article/cloudflare-saas-worker-custom-domain-pages-proxy-guide
+                - heading "Cloudflare SaaS回源+ Worker实现国内域名访问Pages完整指南" [level=3] [ref=e493]
+                - generic [ref=e498]:
+                  - generic [ref=e500]: deeprouter.org
+                  - generic [ref=e502]: https://deeprouter.org › article › cloudflare-saas-worker...
+              - button "关于这条结果的详细信息" [ref=e503] [cursor=pointer]:
+                - img [ref=e506]
+            - generic [ref=e509]:
+              - generic [ref=e510]: 2026年1月23日 —
+              - generic [ref=e511]:
+                - emphasis [ref=e512]: 问题
+                - text: 一：522错误 ;
+                - emphasis [ref=e513]: DNS
+                - text: 指向错误. 检查
+                - emphasis [ref=e514]: CNAME
+                - text: 是否指向
+                - emphasis [ref=e515]: pages
+                - text: .dev. 改为指向回源域名 ; Worker代码错误. 检查 TARGET_HOST 是否带 https:// 只填写纯域名.
+          - generic [ref=e519]:
+            - generic [ref=e522]:
+              - link "通过CloudFlare 为根域名添加CNAME 记录 Strikingly https://support.strikingly.com › zh-cn › articles › 214363..." [ref=e524] [cursor=pointer]:
+                - /url: https://support.strikingly.com/hc/zh-cn/articles/214363868-%E9%80%9A%E8%BF%87-CloudFlare-%E4%B8%BA%E6%A0%B9%E5%9F%9F%E5%90%8D%E6%B7%BB%E5%8A%A0-CNAME-%E8%AE%B0%E5%BD%95
+                - heading "通过CloudFlare 为根域名添加CNAME 记录" [level=3] [ref=e525]
+                - generic [ref=e530]:
+                  - generic [ref=e532]: Strikingly
+                  - generic [ref=e534]: https://support.strikingly.com › zh-cn › articles › 214363...
+              - button "关于这条结果的详细信息" [ref=e535] [cursor=pointer]:
+                - img [ref=e538]
+            - generic [ref=e541]:
+              - generic [ref=e542]: 2025年6月2日 —
+              - generic [ref=e543]:
+                - text: 第一步：将你的域名链接到你在Strikingly 上的网站 · 第二步：添加你的域名到
+                - emphasis [ref=e544]: CloudFlare
+                - text: · 第三步：在
+                - emphasis [ref=e545]: CloudFlare
+                - text: 添加一个
+                - emphasis [ref=e546]: CNAME
+                - text: 记录 · 第四步：在你的域名注册商 ...
+          - generic [ref=e553]:
+            - generic [ref=e556]:
+              - link "DPDNS.ORG给Cloudflare Page添加自定义域名报错解决方法 ... YouTube · Your Next Favorite Tools 2170+ 次观看 · 1年前" [ref=e558] [cursor=pointer]:
+                - /url: https://www.youtube.com/watch?v=rjARjuLKv2w
+                - heading "DPDNS.ORG给Cloudflare Page添加自定义域名报错解决方法 ..." [level=3] [ref=e559]
+                - generic [ref=e564]:
+                  - generic [ref=e566]: YouTube · Your Next Favorite Tools
+                  - generic [ref=e568]: 2170+ 次观看 · 1年前
+              - button "关于这条结果的详细信息" [ref=e569] [cursor=pointer]:
+                - img [ref=e572]
+            - generic [ref=e574]:
+              - button "DPDNS.ORG给Cloudflare Page添加自定义域名报错解决方法 ...，由好软推荐上传到YouTube上. 在 Google 上播放. 6:42" [ref=e575] [cursor=pointer]:
+                - generic [ref=e577]:
+                  - img [ref=e580]
+                  - generic [ref=e583]:
+                    - generic [ref=e584]: 6:42
+                    - img [ref=e587]
+              - generic [ref=e590]: Hi，大家好。 昨天发布的视频有些朋友提到给Page添加自定义域名的时候，cname ... dpdns.org免费域名问题解答| Cloudflare Pages无法添加自定义域？| 无法 ...
+          - generic [ref=e594]:
+            - generic [ref=e597]:
+              - link "常见的DNS 问题及解决方法 Cloudflare https://www.cloudflare.com › dns › common-dns-issues" [ref=e599] [cursor=pointer]:
+                - /url: https://www.cloudflare.com/zh-cn/learning/dns/common-dns-issues/
+                - heading "常见的DNS 问题及解决方法" [level=3] [ref=e600]
+                - generic [ref=e605]:
+                  - generic [ref=e607]: Cloudflare
+                  - generic [ref=e609]: https://www.cloudflare.com › dns › common-dns-issues
+              - button "关于这条结果的详细信息" [ref=e610] [cursor=pointer]:
+                - img [ref=e613]
+            - generic [ref=e617]:
+              - text: 网站或应用程序会由于各种
+              - emphasis [ref=e618]: DNS 问题
+              - text: 而无法正常运行，这些
+              - emphasis [ref=e619]: 问题
+              - text: 包括
+              - emphasis [ref=e620]: DNS
+              - text: 配置错误、延迟或恶意攻击。了解常见的
+              - emphasis [ref=e621]: DNS 问题
+              - text: 及解决办法。
+          - generic [ref=e625]:
+            - generic [ref=e628]:
+              - link "实现网站国内外分流（境外接入Cloudflare） blog.uuanqin.top https://blog.uuanqin.top › ..." [ref=e630] [cursor=pointer]:
+                - /url: https://blog.uuanqin.top/p/55893d1/index.html
+                - heading "实现网站国内外分流（境外接入Cloudflare）" [level=3] [ref=e631]
+                - generic [ref=e636]:
+                  - generic [ref=e638]: blog.uuanqin.top
+                  - generic [ref=e640]: https://blog.uuanqin.top › ...
+              - button "关于这条结果的详细信息" [ref=e641] [cursor=pointer]:
+                - img [ref=e644]
+            - generic [ref=e647]:
+              - generic [ref=e648]: 2024年12月10日 —
+              - generic [ref=e649]:
+                - text: 本文介绍了如何通过配置
+                - emphasis [ref=e650]: Cloudflare
+                - text: 和
+                - emphasis [ref=e651]: DNS
+                - text: 解析实现网站国内外分流，提升访问速度和稳定性。作者首先提到自己在uuanqin.top 域名上使用
+                - emphasis [ref=e652]: Cloudflare
+                - text: 服务， ...
+          - generic [ref=e656]:
+            - heading "相关问题" [level=2] [ref=e658]
+            - generic [ref=e659]:
+              - button "Cloudflare错误怎么解决？" [ref=e665] [cursor=pointer]:
+                - generic [ref=e667]: Cloudflare错误怎么解决？
+                - img [ref=e670]
+              - button "Cloudflare 修改DNS多久生效？" [ref=e679] [cursor=pointer]:
+                - generic [ref=e681]: Cloudflare 修改DNS多久生效？
+                - img [ref=e684]
+              - button "Cloudflare 524 错误是什么意思?如何避免?" [ref=e693] [cursor=pointer]:
+                - generic [ref=e695]: Cloudflare 524 错误是什么意思?如何避免?
+                - img [ref=e698]
+              - button "如何在 Cloudflare 上添加域名解析?" [ref=e707] [cursor=pointer]:
+                - generic [ref=e709]: 如何在 Cloudflare 上添加域名解析?
+                - img [ref=e712]
+          - generic [ref=e717]:
+            - heading "网页搜索结果" [level=2] [ref=e718]
+            - generic [ref=e719]:
+              - generic [ref=e722]:
+                - link "Cloudflare Workers / Pages 自定义域名使用自选IP 的简单 ... GitHub https://github.com › CloudflareSpeedTest › discussions" [ref=e724] [cursor=pointer]:
+                  - /url: https://github.com/XIU2/CloudflareSpeedTest/discussions/310
+                  - heading "Cloudflare Workers / Pages 自定义域名使用自选IP 的简单 ..." [level=3] [ref=e725]
+                  - generic [ref=e730]:
+                    - generic [ref=e732]: GitHub
+                    - generic [ref=e734]: https://github.com › CloudflareSpeedTest › discussions
+                - button "关于这条结果的详细信息" [ref=e735] [cursor=pointer]:
+                  - img [ref=e738]
+              - generic [ref=e742]:
+                - text: 导致
+                - emphasis [ref=e743]: Cloudflare
+                - text: 限制了下面教程方案，如果你的域名解析托管在
+                - emphasis [ref=e744]: Cloudflare
+                - text: CDN，那么会被自动添加
+                - emphasis [ref=e745]: CNAME
+                - text: 解析记录并无法修改，但如果你的域名解析没有托管在
+                - emphasis [ref=e746]: Cloudflare
+                - text: CDN，那就 ...
+        - navigation [ref=e749]:
+          - heading "网页导航" [level=1] [ref=e750]
+          - text: "1"
+          - link "Page 2" [ref=e753] [cursor=pointer]:
+            - /url: /search?q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&sca_esv=6e9105e3f9215b89&ei=RbXYaajIApTEkPIPkuPKkQw&start=10&sa=N&sstk=Af77f_c3NdmbTrIkUAYFse9r8WxCiWEegEti5d9v4H4AKqmqganobZb9UTVHlQceVVMC9yq5WvRD3vHT83uqzXBPy6ewey1qSAbajg&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQ8tMDegQICxAE
+            - text: "2"
+          - link "Page 3" [ref=e755] [cursor=pointer]:
+            - /url: /search?q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&sca_esv=6e9105e3f9215b89&ei=RbXYaajIApTEkPIPkuPKkQw&start=20&sa=N&sstk=Af77f_c3NdmbTrIkUAYFse9r8WxCiWEegEti5d9v4H4AKqmqganobZb9UTVHlQceVVMC9yq5WvRD3vHT83uqzXBPy6ewey1qSAbajg&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQ8tMDegQICxAG
+            - text: "3"
+          - link "Page 4" [ref=e757] [cursor=pointer]:
+            - /url: /search?q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&sca_esv=6e9105e3f9215b89&ei=RbXYaajIApTEkPIPkuPKkQw&start=30&sa=N&sstk=Af77f_c3NdmbTrIkUAYFse9r8WxCiWEegEti5d9v4H4AKqmqganobZb9UTVHlQceVVMC9yq5WvRD3vHT83uqzXBPy6ewey1qSAbajg&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQ8tMDegQICxAI
+            - text: "4"
+          - link "Page 5" [ref=e759] [cursor=pointer]:
+            - /url: /search?q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&sca_esv=6e9105e3f9215b89&ei=RbXYaajIApTEkPIPkuPKkQw&start=40&sa=N&sstk=Af77f_c3NdmbTrIkUAYFse9r8WxCiWEegEti5d9v4H4AKqmqganobZb9UTVHlQceVVMC9yq5WvRD3vHT83uqzXBPy6ewey1qSAbajg&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQ8tMDegQICxAK
+            - text: "5"
+          - link "Page 6" [ref=e761] [cursor=pointer]:
+            - /url: /search?q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&sca_esv=6e9105e3f9215b89&ei=RbXYaajIApTEkPIPkuPKkQw&start=50&sa=N&sstk=Af77f_c3NdmbTrIkUAYFse9r8WxCiWEegEti5d9v4H4AKqmqganobZb9UTVHlQceVVMC9yq5WvRD3vHT83uqzXBPy6ewey1qSAbajg&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQ8tMDegQICxAM
+            - text: "6"
+          - link "Page 7" [ref=e763] [cursor=pointer]:
+            - /url: /search?q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&sca_esv=6e9105e3f9215b89&ei=RbXYaajIApTEkPIPkuPKkQw&start=60&sa=N&sstk=Af77f_c3NdmbTrIkUAYFse9r8WxCiWEegEti5d9v4H4AKqmqganobZb9UTVHlQceVVMC9yq5WvRD3vHT83uqzXBPy6ewey1qSAbajg&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQ8tMDegQICxAO
+            - text: "7"
+          - link "Page 8" [ref=e765] [cursor=pointer]:
+            - /url: /search?q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&sca_esv=6e9105e3f9215b89&ei=RbXYaajIApTEkPIPkuPKkQw&start=70&sa=N&sstk=Af77f_c3NdmbTrIkUAYFse9r8WxCiWEegEti5d9v4H4AKqmqganobZb9UTVHlQceVVMC9yq5WvRD3vHT83uqzXBPy6ewey1qSAbajg&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQ8tMDegQICxAQ
+            - text: "8"
+          - link "Page 9" [ref=e767] [cursor=pointer]:
+            - /url: /search?q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&sca_esv=6e9105e3f9215b89&ei=RbXYaajIApTEkPIPkuPKkQw&start=80&sa=N&sstk=Af77f_c3NdmbTrIkUAYFse9r8WxCiWEegEti5d9v4H4AKqmqganobZb9UTVHlQceVVMC9yq5WvRD3vHT83uqzXBPy6ewey1qSAbajg&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQ8tMDegQICxAS
+            - text: "9"
+          - link "Page 10" [ref=e769] [cursor=pointer]:
+            - /url: /search?q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&sca_esv=6e9105e3f9215b89&ei=RbXYaajIApTEkPIPkuPKkQw&start=90&sa=N&sstk=Af77f_c3NdmbTrIkUAYFse9r8WxCiWEegEti5d9v4H4AKqmqganobZb9UTVHlQceVVMC9yq5WvRD3vHT83uqzXBPy6ewey1qSAbajg&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQ8tMDegQICxAU
+            - text: "10"
+          - heading "下一页" [level=2] [ref=e771]:
+            - link "下一页" [ref=e772] [cursor=pointer]:
+              - /url: /search?q=DNSPod+CNAME+Cloudflare+Pages+%E9%97%AE%E9%A2%98&sca_esv=6e9105e3f9215b89&ei=RbXYaajIApTEkPIPkuPKkQw&start=10&sa=N&sstk=Af77f_c3NdmbTrIkUAYFse9r8WxCiWEegEti5d9v4H4AKqmqganobZb9UTVHlQceVVMC9yq5WvRD3vHT83uqzXBPy6ewey1qSAbajg&ved=2ahUKEwjo_tKf7-KTAxUUIkQIHZKxMsIQ8NMDegQICxAW
+              - generic [ref=e774]: 下一页
+        - navigation
+    - contentinfo [ref=e775]:
+      - heading "页脚链接" [level=1] [ref=e776]
+      - generic [ref=e780]:
+        - generic [ref=e784]:
+          - button "亚利桑那州 - 是根据您的 IP 地址推断出来的" [ref=e786] [cursor=pointer]:
+            - generic [ref=e787]: 亚利桑那州
+            - generic [ref=e789]:
+              - text: "-"
+              - generic [ref=e790]: 是根据您的 IP 地址推断出来的
+          - text: "-"
+          - button "更新位置信息" [ref=e792] [cursor=pointer]: 更新位置信息
+        - generic [ref=e795]:
+          - link "帮助" [ref=e796] [cursor=pointer]:
+            - /url: https://support.google.com/websearch/?p=ws_results_help&hl=zh-CN&fg=1
+          - link "发送反馈" [ref=e797] [cursor=pointer]:
+            - /url: "#"
+          - link "隐私权" [ref=e798] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=zh-CN&fg=1
+          - link "条款" [ref=e799] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=zh-CN&fg=1
