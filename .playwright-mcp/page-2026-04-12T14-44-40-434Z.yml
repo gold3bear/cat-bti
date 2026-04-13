@@ -1,0 +1,47 @@
+- generic [ref=e4]:
+  - generic:
+    - generic: MONK
+    - generic: WOC
+    - generic: FOOL
+    - generic: SEXY
+    - generic: FIRE
+    - generic: YOLO
+    - generic: ANCE
+    - generic: HUGS
+    - generic: LUCK
+    - generic: BABE
+    - generic: BOSS
+    - generic: DEAD
+    - generic: RULE
+    - generic: SOUL
+    - generic: FOOD
+    - generic: ZZZZ
+    - generic: TALK
+    - generic: CRAZ
+    - generic: SEXY
+    - generic: MONK
+    - generic: WOC
+    - generic: FOOL
+  - generic [ref=e5]:
+    - generic [ref=e6]: MeowBTI
+    - generic [ref=e7]: Cat Bitch Type Indicator
+    - generic [ref=e8]: 猫饼类型测试
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - text: 你的猫，
+        - emphasis [ref=e11]: 有猫饼
+        - text: ？
+      - generic [ref=e12]:
+        - text: 你的猫，
+        - emphasis [ref=e13]: 像你吗
+        - text: ？
+      - generic [ref=e14]: 还是
+      - generic [ref=e15]:
+        - text: 你像
+        - emphasis [ref=e16]: 你的猫
+        - text: ？
+  - button "开始测试 🐱" [ref=e18] [cursor=pointer]
+  - generic [ref=e19]:
+    - text: 出品：
+    - link "PIUPAW比爪" [ref=e20] [cursor=pointer]:
+      - /url: https://xhslink.com/m/AmNGnK1NlmS

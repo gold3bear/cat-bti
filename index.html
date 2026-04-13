@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>喵~BTI 猫咪性格测试</title>
+  <title>喵BTI 喵咪性格测试</title>
   <style>
     :root {
       --bg: #fffbf5;
@@ -170,9 +170,10 @@
       flex-direction: column;
       align-items: center;
       gap: 6px;
+      margin-top: 2rem;
     }
     .cbti-logo {
-      font-size: clamp(72px, 16vw, 120px);
+      font-size: 2.3rem;
       font-weight: 900;
       letter-spacing: -0.04em;
       line-height: 1;
@@ -793,6 +794,29 @@
       .dim-grid,
       .score-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      background: rgba(45, 26, 10, 0.88);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease;
+      white-space: nowrap;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
   </style>
 </head>
 <body>
@@ -805,11 +829,14 @@
 
         <!-- 主内容 -->
         <div class="cbti-hero-center">
-          <div class="cbti-logo">MeowBTI</div>
-          <div class="cbti-fullname">Cat Bitch Type Indicator</div>
-          <div class="cbti-fullname" style="margin-top:4px;">猫饼类型测试</div>
+          <div class="cbti-logo">MiaoBTI <br>猫格测试</div>
+          
+          <div class="cbti-fullname" style="margin-top: 4px;">Miao Bitch Type Indicator</div>
+          <div class="cbti-fullname" style="margin-top:4px; font-size: 16px;">猫咪版 SBTI</div>
           <div class="cbti-tagline">
-            <span>你的猫，<em>有猫饼</em>？</span>
+            
+            <span>你的猫，<em>什么性格</em>？</span>
+            <span>你的猫，<em>有猫饼吗</em>？</span>
             <span>你的猫，<em>像你吗</em>？</span>
             <span class="cbti-or">还是</span>
             <span>你像<em>你的猫</em>？</span>
@@ -838,7 +865,7 @@
 
         <div class="actions-bottom">
           <div class="hint" id="testHint">全选完才会放行。猫咪的世界已经够复杂了，起码把题做完整。</div>
-          <button id="submitBtn" class="btn-primary" disabled style="display:block;margin:0 auto;">开启猫饼探索</button>
+          <button id="submitBtn" class="btn-primary" disabled style="display:block;margin:0 auto;">开启猫格探索</button>
         </div>
       </div>
     </section>
@@ -849,7 +876,7 @@
         <div class="result-layout">
           <div class="result-top">
             <div class="poster-box" id="posterBox">
-              <img id="posterImage" class="poster-image" alt="猫咪性格结果图" />
+              <img id="posterImage" class="poster-image" alt="猫格结果图" />
               <div class="poster-info">
                 <div id="posterCaption" class="poster-caption"></div>
                 <div class="match-badges" id="matchBadges" style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;"></div>
@@ -861,14 +888,14 @@
           </div>
 
           <div class="analysis-box">
-            <h3>有猫饼：<span id="resultTypeLabel"></span></h3>
+            <h3>猫格：<span id="resultTypeLabel"></span></h3>
             <p id="resultDesc"></p>
           </div>
 
           <div id="secondTypeBox" class="second-type-box" style="display:none;"></div>
 
           <div class="dim-box">
-            <h3>猫饼四维画像</h3>
+            <h3>猫格四维画像</h3>
             <div id="dimList" class="dim-list"></div>
           </div>
 
@@ -890,7 +917,7 @@
         <div class="result-actions">
           <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
             <button id="restartBtn" class="btn-secondary">重新测 🐱</button>
-            <button id="toTopBtn" class="btn-primary">回首页 🏠</button>
+            <button id="shareBtn" class="btn-primary">分享 📤</button>
           </div>
         </div>
       </div>
@@ -1512,28 +1539,28 @@
         finalType = TYPE_LIBRARY.ANCE;
         secondaryType = bestNormal;
         modeKicker = '传说隐藏款已解锁';
-        badge = ['触发率 0.3%', '小祖宗认证', '极度稀缺猫饼'];
+        badge = ['触发率 0.3%', '小祖宗认证', '极度稀缺猫格'];
         sub = '手机完全献给猫 + 控制欲拉满。你不是在养猫，你在供奉一位降临凡间的存在。';
         special = true;
       } else if (babeTriggered) {
         finalType = TYPE_LIBRARY.BABE;
         secondaryType = bestNormal;
         modeKicker = '史诗隐藏款已解锁';
-        badge = ['触发率 <2%', '恋爱脑认证', '极度稀缺猫饼'];
+        badge = ['触发率 <2%', '恋爱脑认证', '极度稀缺猫格'];
         sub = '情绪、依恋、控制欲三项全拉满。爱了就是爱了，不需要理由。';
         special = true;
       } else if (mumTriggered) {
         finalType = TYPE_LIBRARY.MUM;
         secondaryType = bestNormal;
         modeKicker = '史诗隐藏款已解锁';
-        badge = ['触发率 <2%', '猫妈妈认证', '极度稀缺猫饼'];
+        badge = ['触发率 <2%', '猫妈妈认证', '极度稀缺猫格'];
         sub = '你遇到了一只把你当孩子养的猫妈妈。';
         special = true;
       } else if (luckTriggered) {
         finalType = TYPE_LIBRARY.LUCK;
         secondaryType = bestNormal;
         modeKicker = '稀有隐藏款已解锁';
-        badge = ['触发率 <4%', '招财认证', '极度稀缺猫饼'];
+        badge = ['触发率 <4%', '招财认证', '极度稀缺猫格'];
         sub = '招财猫降临，好运即将挡不住。';
         special = true;
       } else {
@@ -1541,8 +1568,8 @@
         modeKicker = '你的主猫格';
         const matchLabel = ['', '基础匹配', '部分吻合', '强力匹配', '高度契合'][bestNormal.exact] || '';
         badge = matchLabel
-          ? [`猫饼匹配度 ${bestNormal.similarity}%`, matchLabel]
-          : [`猫饼匹配度 ${bestNormal.similarity}%`];
+          ? [`猫格匹配度 ${bestNormal.similarity}%`, matchLabel]
+          : [`猫格匹配度 ${bestNormal.similarity}%`];
         sub = '以下是你的猫格解读，也是一面镜子。';
       }
 
@@ -1644,7 +1671,12 @@
     document.getElementById('startBtn').addEventListener('click', () => startTest(false));
     document.getElementById('submitBtn').addEventListener('click', renderResult);
     document.getElementById('restartBtn').addEventListener('click', () => startTest(false));
-    document.getElementById('toTopBtn').addEventListener('click', () => showScreen('intro'));
+    document.getElementById('shareBtn').addEventListener('click', () => {
+      const toast = document.getElementById('shareToast');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    });
 
     (function checkPreview() {
       const code = new URLSearchParams(location.search).get('preview');
@@ -1733,5 +1765,6 @@
     })();
   </script>
 
+<div id="shareToast" class="toast">请截图分享</div>
 </body>
 </html>
